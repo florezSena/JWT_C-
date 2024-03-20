@@ -1,0 +1,44 @@
+﻿* {
+    font-family: 'Boogaloo', cursive;
+}
+
+#footerLayout {
+    height: 50px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+@media (max-width: 576px) {
+    #footerLayout {
+        position: unset;
+        margin-top:20px;
+    }
+}
+
+.navegaciones {
+    background: #077336;
+    height: 50px;
+    border: solid black 1px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 4px;
+}
+
+.navegaciones a {
+    text-decoration: none;
+    color: white;
+    margin-top: 9px;
+    font-size: 25px;
+}
+
+
+@media screen and (max-width: 320px) and (max-height: 480px) {
+    #menuLateral {
+        max-height: 275px;
+        overflow-y: auto;
+    }
+}

@@ -1,0 +1,336 @@
+﻿@model IEnumerable<Lemon.Models.Movimiento>
+<style>
+    #nav-item8 {
+        background: #27e83b;
+    }
+</style>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var tipoMovimientos = ViewData["IdTipoMovimiento"];
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devolucion page</title>
+    <link rel="stylesheet" href="~/css/Movimientos/styleMovimiento.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/f583145028.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="todo">
+        <div class="cosasDevolucion">
+            <form id="movimientoForm" method="post">
+                <div class="divTipoMov">
+                    <h2>Tipo de movimiento</h2>
+                    <div class="divSelect">
+                        <select id="IdTipo" class="form-control select seleccionar">
+                            @foreach(var tipo in ViewData["Tipos"] as List<Tipomovimiento>)
+                            {
+                                <option value = "@tipo.IdTipoMovimiento">@tipo.Nombre</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="divProducto">
+                    <h2>Producto</h2>
+                    <div class="barraNav">
+                        <button id="btnBuscarProducto" type="button" class="btn btn-success ms-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Buscar producto
+                        </button>
+                        <input type="hidden" id="IdProducto" name="IdProducto">
+                    </div>
+                </div>
+                <div class="divCantidad">
+                    <h2>Cantidad</h2>
+                    <input id="CantidadMov" name="CantidadMov" type="text" placeholder="7">
+                </div>
+                <div class="divFecha">
+                    <h2>Fecha de devolucion</h2>
+                    <input id="FechaMov" name="FechaMov" type="datetime-local" readonly>
+                </div>
+
+                <div class="divBoton">
+                    <button type="button" onclick="validarFormulario()">Registrar</button>
+                </div>
+            </form>
+
+            <div class="modal fade col-12" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Buscar producto</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="col-8">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="searchInput" placeholder="Buscar producto" aria-label="Search" aria-describedby="button-addon2">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: gray; font-size:30px;"></i></button>
+                                </div>
+                            </div>
+
+
+                            <div class="bodyVentas col-lg-12 col-12 mt-5" style="background:white; overflow-x:auto; ">
+                                <div class="table">
+                                    <table id="productosTable" class="tablaDeDatos col-12">
+                                        <thead>
+                                            <tr>
+                                                <th>IdProducto</th>
+                                                <th>Nombre</th>
+                                                <th>Cantidad</th>
+                                                <th>Descripcion</th>
+                                                <th>Costo</th>
+                                                <th>Accion</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in ViewData["Prods"] as List<Producto>)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.IdProducto)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Cantidad)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Descripcion)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Costo)
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-primary btn-seleccionar">Seleccionar</button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="body">
+                <div class="tablaMovimientos">
+                    <h2>Historial de movimientos</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Fecha Movimimiento
+                                </th>
+                                <th>
+                                    Cantidad
+                                </th>
+                                <th>
+                                    Producto
+                                </th>
+                                <th>
+                                    Tipo Movimiento
+                                </th>
+                                <th>
+                                    Funciones
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fecha)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cantidad)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IdProducto)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IdTipoMovimiento)
+                                    </td>
+                                    <td>
+                                        <a id="delete" href="#" data-id="@item.IdMovimiento"><i style="color: black;" class="fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    const inputFecha = document.getElementById('FechaMov');
+
+    const fechaActual = new Date();
+
+    fechaActual.setHours(fechaActual.getHours() - 5);
+
+    const formatoFechaActual = fechaActual.toISOString().slice(0, 16);
+
+    inputFecha.value = formatoFechaActual;
+
+    function validarFormulario() {
+        var idTipo = $("#IdTipo").val();
+        var idProducto = $("#IdProducto").val();
+        var fechaMov = $("#FechaMov").val();
+        var cantidadMov = $("#CantidadMov").val();
+
+        if (!idTipo || isNaN(parseInt(idTipo))) {
+            mostrarAlertaError('Por favor, selecciona un Tipo de Movimiento válido.');
+            return false;
+        }
+
+        if (!idProducto || isNaN(parseInt(idProducto))) {
+            mostrarAlertaError('Por favor, selecciona un Producto válido.');
+            return false;
+        }
+
+        if (!fechaMov) {
+            mostrarAlertaError('Por favor, ingresa una Fecha de Devolución válida.');
+            return false;
+        }
+
+        if (!cantidadMov || isNaN(parseInt(cantidadMov))) {
+            mostrarAlertaError('Por favor, ingresa una Cantidad válida.');
+            return false;
+        }
+
+        mostrarAlertaConfirmacion();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteLinks = document.querySelectorAll('#delete');
+
+        deleteLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const movimientoId = this.dataset.id;
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Confirmar eliminación',
+                    text: '¿Estás seguro de eliminar este movimiento?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Sí',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Si se confirma la eliminación, redirige a la acción Delete del controlador
+                        window.location.href = `/Movimientos/Delete/${movimientoId}`;
+                    }
+                });
+            });
+        });
+    });
+
+
+    function enviarFormulario() {
+        var formData = {
+            IdTipoMovimiento: parseInt($("#IdTipo").val()),
+            IdProducto: parseInt($("#IdProducto").val()),
+            Fecha: $("#FechaMov").val(),
+            Cantidad: parseInt($("#CantidadMov").val())
+        };
+
+        fetch('/Movimientos/Create', { // Verifica que esta ruta sea correcta
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                var url = "/Movimientos/Index";
+                window.location.href = url;
+                return response.json();
+            })
+            .then(data => {
+                console.log('Server response:', data);
+                if (Array.isArray(data) && data.length > 0) {
+                    console.error('ModelState errors:', data);
+                } else {
+                    console.log('Successfully registered.');
+                }
+            })
+            .catch(error => {
+                console.error('Error in fetch request:', error);
+            });
+    }
+
+
+    var botonesSeleccionar = document.getElementsByClassName('btn-seleccionar');
+
+    // Verifica si se encontraron botones de selección
+    if (botonesSeleccionar.length === 0) {
+        console.error('No se encontraron botones de selección.');
+    }
+
+    for (var i = 0; i < botonesSeleccionar.length; i++) {
+        botonesSeleccionar[i].addEventListener('click', function () {
+            var fila = this.closest('tr');
+            var idProducto = fila.cells[0].innerText;
+            var nombre = fila.cells[1].innerText;
+
+            // Oculta el botón "Buscar producto"
+            document.getElementById('btnBuscarProducto').textContent = nombre;
+            // Asigna el nombre del producto al campo de texto
+            document.getElementById('IdProducto').value = idProducto;
+
+            // Cierra el modal
+            var modal = document.getElementById('staticBackdrop');
+            $(modal).modal('hide'); // Cierra el modal utilizando jQuery
+        });
+    }
+
+
+    function mostrarAlertaError(mensaje) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: mensaje,
+            confirmButtonText: 'Aceptar'
+        });
+    }
+
+    function mostrarAlertaConfirmacion() {
+        Swal.fire({
+            icon: 'question',
+            title: 'Confirmar registro',
+            text: '¿Estás seguro de registrar este movimiento?',
+            showCancelButton: true,
+            confirmButtonText: 'Sí',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                enviarFormulario();
+            }
+        });
+    }
+</script>

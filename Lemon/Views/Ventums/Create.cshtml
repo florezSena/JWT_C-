@@ -1,0 +1,148 @@
+﻿@model Lemon.Models.Ventum
+@{
+    ViewData["Title"] = "Crear venta";
+}
+<div id="Contenedor" class="col-12 border rounded border-white mt-2 align-items-center text-center">
+    <article class="border border-white align-items-center ms-md-2 ms-0 me-md-2 me-0" style="font-size:20px; background:white;">
+        <section class="infoVenta border rounded" style="border:1px solid #ebebeb;">
+
+            <div class="form-group col-md-2 col-11 ms-md-5 mt-3 mb-3">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input id="fechaInput" asp-for="Fecha" class="form-control text-center" type="datetime-local" disabled />
+            </div>
+
+            <div class="form-group text-center mt-md-0 mt-1 col-md-2 col-11">
+                <label class="control-label">Documento cliente</label>
+                <input id="inputDocumento" class="form-control" disabled value="@ViewData["Documento"]" />
+            </div>
+
+            <div class="form-group text-center mt-md-0 mt-1 col-md-2 col-11">
+                <label class="control-label">Cliente</label>
+                <input id="inputNombre" type="text" class="form-control" disabled value="@ViewData["NombreRS"]" />
+            </div>
+
+            <div class="form-group ms-5 text-center" style="display:none;">
+                <label class="control-label">IdCliente</label>
+                <input id="inputIdCliente" value="@ViewData["IdCliente"]" class="form-control" disabled />
+            </div>
+
+            <div class="form-group col-md-2 col-11 mt-3 mb-3">
+                <label asp-for="Total" class="control-label"></label>
+                <input asp-for="Total" oninput="validarProgreso()" id="inputTotal" value="@ViewData["TotalVenta"]" class="form-control d-none" disabled />
+                <input type="text" id="inputTotalMostrar" class="form-control" disabled />
+                
+            </div>
+            <div class="form-group col-md-1 col-11 me-md-5 mt-3 mb-3">
+                <label class="control-label">Descuento(%)</label>
+                <input oninput="progresoTotal()" id="inputDescuento" value="0" class="form-control" />
+                <span id="validarDescuento" class="text-danger" style="font-size:15px;"></span>
+
+            </div>
+        </section>
+    </article>
+</div>
+<div class="col-12 text-center">
+    <h3>Productos agregados</h3>
+</div>
+<article class="col-12 " style="overflow-x:auto; background:white;">
+    <div id="detallesVenta" class="mt-2 border border-color-black ms-2 me-2" style="border-radius:10px; min-width:600px; overflow-y:auto;  font-size:20px; height:250px; max-height:250px; background:white; ">
+        <table id="tablaProductos" class="mb-2 col-12">
+            <thead>
+                <tr style="border:0; background:#ebebeb;">
+                    <td>IdProducto</td>
+                    <td>Nombre</td>
+                    <td>Costo</td>
+                    <td>Kilos a vender</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var detalles = ViewData["Detalles"] as List<Producto>;
+                    if (detalles != null)
+                    {
+                        foreach (var detalle in detalles)
+                        {
+                            <tr style="border: 0;height: 50px;border-top: 1px solid #ebebeb;">
+                                <td>@detalle.IdProducto</td>
+                                <td>@detalle.Nombre</td>
+                                <td>$@string.Format("{0:N2}", detalle.Costo)</td>
+                                <td>@detalle.Cantidad</td>
+                                <td>$@(string.Format("{0:N2}", detalle.Costo * detalle.Cantidad))</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<footer class="col-12 mt-1 mb-5 d-flex justify-content-center" style="background:white; overflow-x:auto;">
+    <div class="d-flex justify-content-end" style="background:white; min-width:350px; overflow-x:auto;">
+        <a asp-controller="Ventums" asp-action="CreateCliente" class="btn btn-dark mt-2 me-2">Volver</a>
+
+        <a asp-controller="Ventums" asp-action="CreateDetalle" id="progresoAnterior" class="btn btn-outline-secondary text-dark mt-2 me-2">1</a>
+        <a asp-controller="Ventums" asp-action="CreateCliente" id="progreso1" class="btn btn-outline-secondary text-dark mt-2 me-2">2</a>
+        <button id="progreso2" class="btn btn-outline-secondary text-dark mt-2 me-2">3</button>
+
+        <button onclick="validarVenta()" class="btn btn-success mt-2 me-2">Realizar venta</button>
+    </div>
+</footer>
+
+<link rel="stylesheet" href="~/css/tablas.css">
+<link rel="stylesheet" href="~/css/Ventas/create.css">
+
+@if (ViewData["Documento"] != null && ViewData["Detalles"] != null)
+{
+    <script>
+        document.getElementById('progreso2').style.background = "#ebebebeb";
+    </script>
+}
+
+@if (ViewData["Documento"] != null)
+{
+    <script>
+        document.getElementById('progreso1').style.background = "#ebebebeb";
+    </script>
+}else{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error no haz seleccionado el cliente',
+            text: 'Antes de reazliar la venta debes agregar un cliente',
+            timer: 3000,
+            timerProgressBar: true,
+            confirmButtonColor: '#000000',
+            showConfirmButton: true,
+            didClose: () => {
+                window.location.href = '/Ventums/CreateCliente';
+            }
+        })
+    </script>
+}
+@if (ViewData["Detalles"] == null)
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error no haz guardado detalles',
+            text: 'Antes de realizar la venta debes guardar detalles',
+            timer: 3000,
+            timerProgressBar: true,
+            confirmButtonColor: '#000000',
+            showConfirmButton: true,
+            didClose: () => {
+                window.location.href = '/Ventums/CreateDetalle';
+            }
+        })
+    </script>
+}
+else
+{
+    <script>
+        document.getElementById('progresoAnterior').style.background = "#ebebebeb";
+    </script>
+}
+
+<script src="~/js/Ventas/create.js"></script>

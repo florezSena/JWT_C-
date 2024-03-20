@@ -1,0 +1,145 @@
+﻿@model Lemon.Models.Compra
+@{
+    ViewData["Title"] = "Create";
+}
+<div id="Contenedor" class="col-12 border rounded border-white mt-2 align-items-center text-center">
+    <article class="border align-items-center ms-md-5 ms-0 me-md-5 me-0" style="font-size:20px; background:white;">
+
+        <section class="infoCliente border rounded border-white mt-5">
+            <div class="col-md-2 col-11 ms-md-5 ms-0">
+                <button type="button" style="width:100%;" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Buscar Proveeedor
+                </button>
+            </div>
+
+            <div class="form-group text-center ms-md-5 ms-0 mt-md-0 mt-1 col-md-2 col-11">
+                <label class="control-label">Documento</label>
+                <input id="inputDocumento" class="form-control" disabled value="@ViewData["Documento"]" />
+            </div>
+           
+            <div class="form-group text-center ms-md-5 ms-0 me-md-5 me-0 mt-md-0 mt-1 col-md-3 col-11">
+                <label class="control-label">Nombre o razon social</label>
+                <input id="inputNombre" type="text" class="form-control" disabled value="@ViewData["NombreRS"]" />
+            </div>
+        </section>
+
+        <section class="infoProveedor mt-md-5 mt-1 mb-5">
+            <div class="ms-5"></div>
+            <div class="ms-md-5 ms-0"></div>
+
+            <div class="form-group text-center ms-md-5 ms-0 mt-md-0 mt-1 col-md-2 col-11">
+                <label class="control-label">Telefono</label>
+                <input id="inputTelefono" class="form-control" disabled value="@ViewData["Telefono"]" />
+            </div>
+
+            <div class="form-group text-center ms-md-5 ms-0 mt-md-0 mt-1 me-md-5 me-0 col-md-3 col-11">
+                <label class="control-label">Correo</label>
+                <input id="inputCorreo" type="text" class="form-control" disabled value="@ViewData["Correo"]" />
+            </div>
+        </section>
+    </article>
+</div>
+
+<footer class="col-12 mt-5 d-flex justify-content-center" style="background:white; overflow-x:auto;">
+    <div class="d-flex justify-content-end" style="background:white; min-width:350px; overflow-x:auto;">
+        <a asp-controller="Compras" asp-action="CreateDetalle" class="btn btn-danger mt-2 me-2">Volver</a>
+
+        <a asp-controller="Compras" asp-action="CreateDetalle" id="progresoAnterior" class="btn btn-outline-secondary text-dark mt-2 me-2">1</a>
+        <button id="progreso" class="btn btn-outline-secondary text-dark mt-2 me-2">2</button>
+        <button onclick="validarProveedor()" class="btn btn-outline-secondary text-dark mt-2 me-2">3</button>
+
+        <button onclick="validarProveedor()" class="btn btn-primary mt-2 me-2">Siguiente</button>
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade col-12" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Buscar Proveedor</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Buscar Proveedor" aria-label="Search" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: gray; font-size:30px;"></i></button>
+                    </div>
+                </div>
+
+                <article class="col-12 " style="overflow-x:auto; background:white;">
+                    <div class="mt-2 border border-color-black ms-2 me-2" style="border-radius:10px; min-width:600px; overflow-y:auto;  font-size:20px; height:450px; max-height:450px; background:white; ">
+                        <table id="proveedoresTable" class="tablaDeDatos mb-2 col-12">
+                            <thead>
+                                <tr style="border:0; background:#ebebeb;">
+                                    <th>IdProveedor</th>
+                                    <th>Documento</th>
+                                    <th>Nombre o razon social</th>
+                                    <th>Correo</th>
+                                    <th>Telefono</th>
+                                    <th>Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var proveedores = ViewData["Proveedores"] as List<Proveedor>;
+                                    if (proveedores != null)
+                                    {
+                                        foreach (var proveedor in proveedores)
+                                        {
+                                            <tr data-id="@proveedor.IdProveedor" class="filaProducto">
+                                                <td>@proveedor.IdProveedor</td>
+                                                <td>@proveedor.Documento</td>
+                                                <td>@proveedor.NombreRazonSocial</td>
+                                                <td>@proveedor.Correo</td>
+                                                <td>@proveedor.Telefono</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-seleccionar">Seleccionar</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="~/css/Compras/Createproveedor.css">
+<link rel="stylesheet" href="~/css/tablas.css">
+@if (ViewData["Documento"] != null)
+{
+    <script>
+        document.getElementById('progreso').style.background = "#b0ffd1";
+    </script>
+}
+@if (ViewData["Detalles"] == null)
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error no has guardado detalles',
+            text: 'Antes de agregar el Proveedor debes guardar detalles',
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: true,
+            didClose: () => {
+                window.location.href = '/Compras/CreateDetalle';
+            }
+        })
+    </script>
+}else{
+    <script>
+        document.getElementById('progresoAnterior').style.background = "#b0ffd1";
+    </script>
+}
+<script src="~/js/Compras/createProveedor.js"></script>

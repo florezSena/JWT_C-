@@ -1,0 +1,27 @@
+﻿#nav-item6 {
+    background: #27e83b;
+}
+.infoCliente{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#articleCliente{
+    display:flex;
+}
+@media (max-width: 767px) {
+    .infoCliente {
+        display: grid;
+        place-items:center;
+        justify-content: initial;
+        align-items: initial;
+    }
+    #articleCliente {
+        display: grid;
+        place-items: center;
+        justify-content: initial;
+        align-items: initial;
+    }
+
+}

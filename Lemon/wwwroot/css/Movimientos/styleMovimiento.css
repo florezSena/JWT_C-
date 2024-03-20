@@ -1,0 +1,345 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Boogaloo', cursive;
+    font-weight: normal
+}
+
+.todo {
+    /*margin-top: 10px; poner 415 cuando tenga que ponerle el top*/
+    height: 600px;
+    width: 100%;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+}
+
+.cosasDevolucion {
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+}
+/* Estilos para id y tipo de movimiento -------------------------------------------------------------------------*/
+
+#movimientoForm {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.divFecha #FechaMov {
+    width: 146px;
+    height: 37px;
+    text-align: center;
+}
+
+#movimientoForm h2{
+    font-size: 23px
+}
+
+#movimientoForm #IdTipo {
+    margin-left: 3px;
+    text-align: center;
+}
+
+.select {
+    width: 130px;
+    margin-left: -30px;
+}
+
+.divIdMov {
+    width: 167px;
+    display: grid;
+    place-items: center;
+}
+
+.divInput, select {
+    margin-top: 10px;
+    background: #e2ee79;
+    height: 33px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 148px;
+}
+
+    .divInput input::placeholder {
+        color: black;
+        font-size: 15px;
+    }
+
+select {
+    background: white;
+    font-size: 15px;
+}
+
+input {
+    border: 0;
+    background: transparent;
+    height: 33px;
+    border-radius: 5px;
+}
+
+    input::placeholder {
+        text-align: center;
+    }
+
+.divTipoMov {
+    width: 167px;
+    display: grid;
+    place-items: center;
+}
+/*Aqui terminan los de id y tipo de movimiento ---------------------------------------------------------------------*/
+.divProducto {
+    width: 167px;
+    display: grid;
+    place-items: center;
+}
+/* Estilos para la cantidad de movimiento --------------------------------------------------------------------------*/
+.divCantidad {
+    width: 167px;
+    display: grid;
+    place-items: center;
+}
+
+    .divCantidad input {
+        text-align: center;
+        margin-top: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 148px;
+        font-size: 20px;
+        background: #e2ee79;
+    }
+/*Aqui terminan los styles de cantidad-------------------------------------------------------------------------------------*/
+/* Styles para el div de fecha */
+.divFecha {
+    width: 167px;
+    display: grid;
+    place-items: center;
+}
+
+    .divFecha input {
+        text-align: center;
+        margin-top: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 128px;
+        color: black;
+        font-size: 20px;
+        padding-left: 20px;
+        background: #e2ee79;
+    }
+/*Aqui terminan los styles de la fecha ---------------------------------------------------------------------------------*/
+/* Styles para el boton de regsitrar movimiento-------------------------------------------------------------------------*/
+.divBoton {
+    margin-top: 10px;
+    width: 167px;
+    display: grid;
+    place-items: center;
+}
+
+    .divBoton button {
+        height: 33px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background: #ebebeb;
+        width: 148px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+/*Aqui termina el boton de registrar movimiento--------------------------------------------------------------------------*/
+
+.body {
+    height: 300px;
+    display: grid;
+    place-items: center;
+}
+
+.tablaMovimientos {
+    text-align: center;
+}
+
+table {
+    width: 900px;
+    font-size: 25px;
+    text-align: center;
+}
+
+thead {
+    background: #ebebeb;
+}
+
+table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    height: 35px;
+}
+
+.botonAnular {
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+
+
+
+/*Styles del foooter----------------------------------------------------------------------------------------------------*/
+.footer {
+    margin-top: 25px;
+    height: 35px;
+    display: flex;
+}
+
+    .footer div {
+        width: 334px;
+    }
+
+.divPaginado {
+    display: grid;
+    place-items: center;
+}
+
+    .divPaginado button {
+        border: 1px solid black;
+        border-radius: 5px;
+        height: 35px;
+        background: white;
+        padding: 0 10px;
+        font-size: 20px;
+    }
+
+#thisPage {
+    background: #e2ee79;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.divAtras {
+    position: relative;
+}
+
+    .divAtras button {
+        position: absolute;
+        right: 0;
+        height: 35px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background: white;
+        font-size: 25px;
+        padding: 0 5px;
+        cursor: pointer;
+    }
+
+/*Aqui termina el footer-------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+/*El buscador de productos----------------------------------------------------------------------------------------------------*/
+.barraNav {
+    margin-top: 10px;
+    display: block;
+    width: 167px;
+}
+
+.seleccionar {
+    background: #e2ee79;
+}
+
+.seleccionar:focus-within {
+    background: #e2ee79;
+}
+
+.seleccionar option{
+    background: white;
+}
+
+.barraNav.active .selectBtn i {
+    transform: rotate(-180deg);
+}
+
+.content {
+    display: none;
+    background: white;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid black;
+}
+
+.barraNav.active .content {
+    display: block;
+}
+
+.content .searchProduct {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchProduct i {
+    position: absolute;
+    left: 5px;
+    line-height: 35px;
+    color: gray;
+}
+
+.searchProduct input {
+    height: 40px;
+    width: 107px;
+    padding: 0 0 0 35px;
+    outline: none;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+    .searchProduct input::placeholder {
+        font-size: 15px;
+        padding-top: 5px;
+    }
+
+.options::-webkit-scrollbar {
+    width: 10px;
+}
+
+.options::-webkit-scrollbar-track {
+    border-radius: 25px;
+    background: white;
+    border: 1px solid gray;
+}
+
+.options::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 25px;
+}
+
+.content .options {
+    margin-top: 10px;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.options li {
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+    .options li:hover, li.selected {
+        background: #9d9d9d;
+    }
+/*Aqui termina xd-----------------------------------------------------------------------------------------------------*/

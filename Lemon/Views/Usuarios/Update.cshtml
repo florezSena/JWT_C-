@@ -1,0 +1,100 @@
+﻿@model Lemon.Models.UsuarioUpdate
+<link rel="stylesheet" href="~/css/Usuarios/formularios.css">
+
+@{
+    ViewData["Title"] = "Actualizar usuario";
+}
+
+<div class="d-flex col-10 offset-1 justify-content-between">
+    <h3>Datos del usuario</h3>
+
+    <h3>Actualizar informacion del usuario</h3>
+</div>
+<div style="display:flex;">
+    <div class="col-md-1 col-1"></div>
+    <div class="col-md-10 col-10 border rounded border-secondary p-5">
+        <form id="formActualizar" class="formularios" asp-action="Update" style="height:250px; max-height:250px; overflow-y:auto; background:white;">
+            <div class="form-group d-none">
+                <label asp-for="IdUsuario" class="control-label"></label>
+                <input asp-for="IdUsuario" class="form-control" />
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
+            <div class="col-md-5 col-12 " style="background:white;">
+                <div class="form-group">
+                    <label asp-for="NombreUsuario" class="control-label">Nombre apellido</label>
+                    <input asp-for="NombreUsuario" id="inputNombreU" class="form-control" />
+                    <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                </div>
+
+                <div class="form-group  mt-3">
+                    <label asp-for="IdRol" class="control-label"></label>
+                    <select asp-for="IdRol" style="height:40px;" class="Txt col-12 form-control">
+                        @{
+                            var roles = ViewData["Roles"] as List<Rol>;
+                            if (roles != null)
+                            {
+                                foreach (var rol in roles)
+                                {
+                                    <option value="@rol.IdRol">@rol.Nombre</option>
+
+                                }
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="IdRol" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-2 col-0"></div>
+            <div class="col-md-5 col-12">
+                <div class="form-group d-none">
+                    <label asp-for="Contraseña" class="control-label"></label>
+                    <input asp-for="Contraseña" id="inputContraseña" class="form-control" />
+                    <span asp-validation-for="Contraseña" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Correo" class="control-label"></label>
+                    <input asp-for="Correo" id="inputCorreo" class="form-control" />
+                    <span asp-validation-for="Correo" class="text-danger"></span>
+                </div>
+                <div class="form-group d-none">
+                    <label asp-for="Estado" class="control-label"></label>
+                    <input asp-for="Estado" value="1" class="form-control" />
+                    <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>
+            </div>
+        </form>
+
+        <div style="display:grid; place-items:center; background: white;">
+            <div asp-validation-summary="ModelOnly" class="text-danger" style="background:white;" id="errorModelOny"></div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-1">
+            <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+
+            <input type="submit" onclick="validarCampos('formActualizar')" value="Guardar" class="btn" style="background:#077336; color:white;" />
+        </div>
+    </div>
+</div>
+@if (ViewData["CorreoRegistrado"] != null)
+{
+    <script>
+        document.getElementById('errorModelOny').style.display = "none"
+        Swal.fire({
+            icon: 'error',
+            title: 'Correo registrado',
+            text: 'Este correo ya ha sido registrado',
+            timer: 3000,
+            timerProgressBar: true,
+            confirmButtonColor: '#000000',
+            showConfirmButton: true
+        })
+    </script>
+}
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+<script src="~/js/Usuarios/validarCampos.js"></script>

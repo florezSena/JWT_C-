@@ -1,0 +1,25 @@
+﻿*{
+    font-size:20px;
+}
+#nav-item7 {
+    background: #27e83b;
+}
+
+.topClientes {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .topClientes {
+        display: block;
+    }
+
+    .topClientes div {
+        margin: auto;
+    }
+    .topClientes a {
+        width: 100%;
+
+    }
+}
+

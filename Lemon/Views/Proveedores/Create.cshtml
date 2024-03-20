@@ -1,0 +1,76 @@
+﻿@model Lemon.Models.Proveedor
+<link rel="stylesheet" href="~/css/Proveedores/create.css">
+@{
+
+    ViewData["Title"] = "Registrar proveedor";
+}
+
+<div class="d-flex col-10 offset-1 justify-content-between">
+    <h3>Datos del proveedor</h3>
+
+    <h3>Registrar informacion del proveedor</h3>
+</div>
+<div style="display:flex; ">
+    <div class="col-md-1 col-1"></div>
+    <div class="col-md-10 col-10 border rounded border-secondary p-5">
+        <form id="formCreate" asp-action="Create" style="height:300px; max-height:300px; overflow-y:auto; background:white;">
+            <div class="col-md-5 col-12 " style="background:white;">
+                <div class="form-group">
+                    <label asp-for="TipoDocumento" class="control-label"></label>
+                    <select asp-for="TipoDocumento" style="height:40px;" class="Txt col-12 form-control">
+                        <option>CC</option>
+                        <option>CE</option>
+                        <option>NIT</option>
+                    </select>
+                    <span asp-validation-for="TipoDocumento" class="text-danger"></span>
+                </div>
+                <div class="form-group  mt-3">
+                    <label asp-for="Documento" class="control-label"></label>
+                    <input asp-for="Documento" class="form-control" id="Documento"/>
+                    <span asp-validation-for="Documento" class="text-danger"></span>
+
+                </div>
+                <div class="form-group  mt-3">
+                    <label asp-for="NombreRazonSocial" class="control-label">Nombre o razon social</label>
+                    <input asp-for="NombreRazonSocial" class="form-control" id="Nombre"/>
+                    <span asp-validation-for="NombreRazonSocial" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-2 col-0"></div>
+            <div class="col-md-5 col-12">
+                <div class="form-group">
+                    <label asp-for="Correo" class="control-label"></label>
+                    <input asp-for="Correo" class="form-control" id="Correo"/>
+                    <span asp-validation-for="Correo" class="text-danger"></span>
+                    @* <span id="CorreoError" class="text-danger" style="display: none;">Por favor ingresa un correo válido.</span> *@
+                </div>
+                <div class="form-group  mt-3">
+                    <label asp-for="Telefono" class="control-label"></label>
+                    <input asp-for="Telefono" class="form-control" id="Telefono"/>
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                    @* <span id="telefonoError" class="text-danger" style="display: none;">Por favor ingresa un número de teléfono válido con al menos 10 dígitos.</span> *@
+                </div>
+                <div class="form-group d-none">
+                    <label asp-for="Estado" class="control-label"></label>
+                    <input asp-for="Estado" value="1" class="form-control" />
+                    <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>
+            </div>
+        </form>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="d-flex justify-content-between mt-1">
+            <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+
+            <input type="submit" onclick="validarCampos('formCreate')" value="Guardar" class="btn" style="background:#077336; color:white;" />
+        </div>
+    </div>
+</div>
+<script src="~/js/Proveedores/validar.js"></script>
+
+    
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

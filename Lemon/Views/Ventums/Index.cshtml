@@ -1,0 +1,217 @@
+﻿@using X.PagedList
+@model X.PagedList.IPagedList<Lemon.Models.Ventum>
+@{
+    ViewData["Title"] = "Ventas";
+}
+
+<link rel="stylesheet" href="~/css/tablas.css">
+<link rel="stylesheet" href="~/css/Ventas/index.css">
+
+<div class="topVentas mt-2 pb-2" style="background-color: white;">
+
+    <div class="col-md-4 col-11 d-flex justify-content-center">
+        <a asp-action="CreateDetalle" type="button" class="btn btn-outline-dark btn-success text-white">Registrar venta <i class=" fa-solid fa-plus fa-lg" style="color: #ffffff;"></i></a>
+    </div>
+    <div class="col-md-6 col-11 mt-md-0 mt-2">
+        <div class="input-group">
+            <input id="buscarVenta" type="text" class="form-control" placeholder="Buscar venta" aria-label="Search" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" onclick="vaciarInput()" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: gray; font-size:30px;"></i></button>
+        </div>
+    </div>
+    <div class="col-md-2 col-11 d-flex justify-content-center mt-md-0 mt-2">
+        <a onclick="generarPdf('Ventums','Ventas')" style="background:#ebebeb;" type="button" class="btn btn-outline-dark "><i class="fa-solid fa-file-pdf fa-xl" style="color: #000000;"></i></a>
+    </div>
+</div>
+
+<article class="col-12 " style="overflow-x:auto; background:white; height:345px;">
+    <div id="ventas" class="mt-2 border border-color-black ms-2 me-2" style="border-radius:10px; min-width:1100px;">
+        <div style="height:5px; background:#ebebebeb; border-top-right-radius:10px; border-top-left-radius:10px;"></div>
+        <table id="tablaVentas" class="mb-2 col-12">
+            <thead>
+                <tr>
+                    <th>Id Venta</th>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="ventasPaginado" style="background: @(item.Estado != 1 ? "#ebebeb" : "white");">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdVenta)
+                        </td>
+                        <td onclick="mostrarInformacionCompleta(this,'nombreRSModal')" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modal">
+                            @if (item.IdClienteNavigation != null)
+                            {
+                                @Html.DisplayFor(modelItem => item.IdClienteNavigation.NombreRazonSocial)
+                            }
+                        </td>
+                        <td>
+                            @item.Fecha.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            $@(string.Format("{0:N2}", item.Total))
+                        </td>
+                        <td>
+                            @if (item.Estado == 1)
+                            {
+                                <span>Realizada</span>
+                            }else{
+                                <span>Anulada</span>
+                            }
+                        </td>
+                        <td class="border-0" style=" width:10px;">
+                            @if (item.Estado == 1)
+                            {
+
+
+                                <a onclick="cambiarEstado(@item.Estado,@item.IdVenta)" style="cursor:pointer;"><i class="fa-solid fa-trash-can-arrow-up fa-lg" style="color: #077336;"></i></a>
+                            }
+                            else
+                            {
+                                <a><i class="fa-solid fa-trash-can-arrow-up fa-lg" style="color: #000000;"></i></a>
+                            }
+                        </td>
+                        <td class="border-0" style=" width:70px;">
+                            <a asp-action="VisualizarVenta" asp-route-id="@item.IdVenta"><i class="fa-regular fa-eye fa-lg" style="color: #000000;"></i></a>
+                        </td>
+                    </tr>
+                }
+                @{
+                    var ventas = ViewData["Ventas"] as List<Ventum>;
+                    if (ventas != null)
+                    {
+                        foreach (var venta in ventas)
+                        {
+                            <tr class="ventasTodos" style="display:none; background: @(venta.Estado != 1 ? "#ebebeb" : "white");">
+                                <td>@venta.IdVenta</td>
+                                <td onclick="mostrarInformacionCompleta(this,'nombreRSModal')" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modal">
+                                    @if (venta.IdClienteNavigation != null)
+                                    {
+                                        @venta.IdClienteNavigation.NombreRazonSocial
+                                    }
+                                </td>
+                                <td>@venta.Fecha.ToString("dd/MM/yyyy")</td>
+                                <td>$@(string.Format("{0:N2}",venta.Total))</td>
+                                <td>
+                                    @if (venta.Estado == 1)
+                                    {
+                                        <span>Realizada</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Anulada</span>
+                                    }
+                                </td>
+                                <td class="border-0" style=" width:10px;">
+                                    @if (venta.Estado == 1)
+                                    {
+
+
+                                        <a onclick="cambiarEstado(@venta.Estado,@venta.IdVenta)" style="cursor:pointer;"><i class="fa-solid fa-trash-can-arrow-up fa-lg" style="color: #077336;"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a><i class="fa-solid fa-trash-can-arrow-up fa-lg" style="color: #000000;"></i></a>
+                                    }
+                                </td>
+                                <td class="border-0" style=" width:70px;">
+                                    <a asp-action="VisualizarVenta" asp-route-id="@venta.IdVenta"><i class="fa-regular fa-eye fa-lg" style="color: #000000;"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<div class="pagination-container mt-2">
+    @if (Model != null && Model.PageCount > 1)
+    {
+        <div class="d-flex justify-content-center">
+            <nav aria-label="Page navigation bg-dark">
+                <ul class="pagination">
+
+                    <!-- Botón para la página anterior (oculto en la página 1) -->
+                    <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                        <a class="page-link" href="?page=@(Model.PageNumber - 1)" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <!-- Iterar sobre las páginas disponibles -->
+                    @for (var i = 1; i <= Model.PageCount; i++)
+                    {
+                        <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                            <a class="page-link" href="?page=@i">@i</a>
+                        </li>
+                    }
+
+                    <!-- Botón para la página siguiente (oculto en la última página) -->
+                    <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                        <a class="page-link" href="?page=@(Model.PageNumber + 1)" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    }
+</div>
+
+<!-- Modal para mostrar la informacion completa -->
+<div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="tituloModal"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="vaciarDatos()"></button>
+            </div>
+            <div class="modal-body">
+
+                <span id="correoModal" style="word-wrap: break-word;"></span>
+                <span id="nombreRSModal" style="word-wrap: break-word;"></span>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/Ventas/index.js"></script>
+<script src="~/js/reportes.js"></script>
+<script src="~/js/mostrarInfoCompleta.js"></script>
+
+
+
+
+<style>
+    /* Estilo para el enlace de página activa */
+    .pagination-container .pagination .page-item.active a {
+        background-color: #077336;
+        border-color: #077336;
+        color: black;
+    }
+
+    /* Estilo para los enlaces de página no activos */
+    .pagination-container .pagination .page-item a {
+        color: black;
+    }
+
+    /* Estilo para los botones de navegación (Anterior y Siguiente) */
+    .pagination-container .pagination .page-item.disabled a,
+    .pagination-container .pagination .page-item.disabled span {
+        color: black;
+        background-color: #ebebeb;
+    }
+</style>

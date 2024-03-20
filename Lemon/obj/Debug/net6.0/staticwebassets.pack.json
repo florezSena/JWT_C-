@@ -1,0 +1,425 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Lemon.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Lemon.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\ReporteClientes.pdf",
+      "PackagePath": "staticwebassets\\ReporteClientes.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\ReporteProveedores.pdf",
+      "PackagePath": "staticwebassets\\ReporteProveedores.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\ReporteUsuarios.pdf",
+      "PackagePath": "staticwebassets\\ReporteUsuarios.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\ReporteVentas.pdf",
+      "PackagePath": "staticwebassets\\ReporteVentas.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Clientes\\Create.css",
+      "PackagePath": "staticwebassets\\css\\Clientes\\Create.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Clientes\\Update.css",
+      "PackagePath": "staticwebassets\\css\\Clientes\\Update.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Clientes\\index.css",
+      "PackagePath": "staticwebassets\\css\\Clientes\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Compras\\Create.css",
+      "PackagePath": "staticwebassets\\css\\Compras\\Create.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Compras\\CreateProveedor.css",
+      "PackagePath": "staticwebassets\\css\\Compras\\CreateProveedor.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Compras\\VisualizarCompra.css",
+      "PackagePath": "staticwebassets\\css\\Compras\\VisualizarCompra.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Compras\\agregarDetalle.css",
+      "PackagePath": "staticwebassets\\css\\Compras\\agregarDetalle.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Compras\\index.css",
+      "PackagePath": "staticwebassets\\css\\Compras\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Layout\\layout.css",
+      "PackagePath": "staticwebassets\\css\\Layout\\layout.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Movimientos\\styleMovimiento.css",
+      "PackagePath": "staticwebassets\\css\\Movimientos\\styleMovimiento.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Proveedores\\Index.css",
+      "PackagePath": "staticwebassets\\css\\Proveedores\\Index.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Proveedores\\create.css",
+      "PackagePath": "staticwebassets\\css\\Proveedores\\create.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Proveedores\\edit.css",
+      "PackagePath": "staticwebassets\\css\\Proveedores\\edit.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Roles\\create.css",
+      "PackagePath": "staticwebassets\\css\\Roles\\create.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Roles\\index.css",
+      "PackagePath": "staticwebassets\\css\\Roles\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Usuarios\\formularios.css",
+      "PackagePath": "staticwebassets\\css\\Usuarios\\formularios.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Usuarios\\index.css",
+      "PackagePath": "staticwebassets\\css\\Usuarios\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Ventas\\agregarDetalle.css",
+      "PackagePath": "staticwebassets\\css\\Ventas\\agregarDetalle.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Ventas\\create.css",
+      "PackagePath": "staticwebassets\\css\\Ventas\\create.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Ventas\\createCliente.css",
+      "PackagePath": "staticwebassets\\css\\Ventas\\createCliente.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Ventas\\index.css",
+      "PackagePath": "staticwebassets\\css\\Ventas\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\Ventas\\visualizarVenta.css",
+      "PackagePath": "staticwebassets\\css\\Ventas\\visualizarVenta.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\css\\tablas.css",
+      "PackagePath": "staticwebassets\\css\\tablas.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\img\\Lemon_Logo.png",
+      "PackagePath": "staticwebassets\\img\\Lemon_Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\img\\Lemon_Logo2.png",
+      "PackagePath": "staticwebassets\\img\\Lemon_Logo2.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Clientes\\index.js",
+      "PackagePath": "staticwebassets\\js\\Clientes\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Clientes\\validarCampos.js",
+      "PackagePath": "staticwebassets\\js\\Clientes\\validarCampos.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Proveedores\\index.js",
+      "PackagePath": "staticwebassets\\js\\Proveedores\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Proveedores\\validar.js",
+      "PackagePath": "staticwebassets\\js\\Proveedores\\validar.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Roles\\index.js",
+      "PackagePath": "staticwebassets\\js\\Roles\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Usuarios\\index.js",
+      "PackagePath": "staticwebassets\\js\\Usuarios\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Usuarios\\validarCampos.js",
+      "PackagePath": "staticwebassets\\js\\Usuarios\\validarCampos.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Ventas\\create.js",
+      "PackagePath": "staticwebassets\\js\\Ventas\\create.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Ventas\\createCliente.js",
+      "PackagePath": "staticwebassets\\js\\Ventas\\createCliente.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Ventas\\createDetalle.js",
+      "PackagePath": "staticwebassets\\js\\Ventas\\createDetalle.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\Ventas\\index.js",
+      "PackagePath": "staticwebassets\\js\\Ventas\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\mostrarInfoCompleta.js",
+      "PackagePath": "staticwebassets\\js\\mostrarInfoCompleta.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\js\\reportes.js",
+      "PackagePath": "staticwebassets\\js\\reportes.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Lemon.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Lemon.props",
+      "PackagePath": "build\\Lemon.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Lemon.props",
+      "PackagePath": "buildMultiTargeting\\Lemon.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Lemon.props",
+      "PackagePath": "buildTransitive\\Lemon.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

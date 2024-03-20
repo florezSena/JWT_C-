@@ -1,0 +1,221 @@
+﻿@using X.PagedList
+@model X.PagedList.IPagedList<Lemon.Models.Cliente>
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<link rel="stylesheet" href="~/css/tablas.css">
+<link rel="stylesheet" href="~/css/Clientes/index.css">
+
+<div class="topClientes mt-2 pb-2" style="background-color: white;">
+    <div class="col-md-4 col-11 d-flex justify-content-center">
+        <a asp-action="Create" type="button" class="btn btn-outline-dark btn-success text-white">Registrar cliente <i class=" fa-solid fa-plus fa-lg" style="color: #ffffff;"></i></a>
+    </div>
+    <div class="col-md-6 col-11 mt-md-0 mt-2">
+        <div class="input-group">
+            <input id="buscarCliente" type="text" class="form-control" placeholder="Buscar cliente" aria-label="Search" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" onclick="vaciarInput()" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: gray; font-size:30px;"></i></button>
+        </div>
+    </div>
+    <div class="col-md-2 col-11 d-flex justify-content-center mt-md-0 mt-2">
+        <a onclick="generarPdf('Clientes','Clientes')" style="background:#ebebeb;" class="btn btn-outline-dark "><i class="fa-solid fa-file-pdf fa-xl" style="color: #000000;"></i></a>
+    </div>
+</div>
+
+<article class="col-12 " style="overflow-x:auto; background:white; height:345px;">
+    <div id="detallesVenta" class="mt-2 border border-color-black ms-2 me-2" style="border-radius:10px; min-width:1100px;">
+        <div style="height:5px; background:#ebebebeb; border-top-right-radius:10px; border-top-left-radius:10px;"></div>
+        <table id="tablaClientes" class="mb-2 col-12">
+            <thead>
+                <tr>
+                    <th>Tipo documento</th>
+                    <th>Documento</th>
+                    <th>Nombre o Razón social</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th colspan="3">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="clientesPaginado">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipoDocumento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Documento)
+                        </td>
+                        <td onclick="mostrarInformacionCompleta(this,'nombreRSModal')" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modal">
+                            @Html.DisplayFor(modelItem => item.NombreRazonSocial)
+                        </td>
+                        <td onclick="mostrarInformacionCompleta(this,'correoModal')" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modal">
+                            @Html.DisplayFor(modelItem => item.Correo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefono)
+                        </td>
+                        <td class="px-3 border-0 pegarDerecha">
+                            @if (item.Estado == 1){
+                                <a asp-action="Update" asp-route-id="@item.IdCliente"><i id="Icono" class="fa-solid fa-pen"></i></a>
+                            }else{
+                                <a style="cursor:default;"><i id="Icono" class="fa-solid fa-pen" style="color:gray;"></i></a>
+                            }
+                        </td>
+                        <td class="px-3 border-0 pegarCentro">
+                            <label class="switch">
+                                <input id="@item.IdCliente" type="checkbox" @(item.Estado == 1 ? "checked" : "") onchange="cambiarEstado(this)">
+                                <span class="slider"></span>
+                            </label>
+                        </td>
+                        <td class="px-3 border-0 pegarIzquierda">
+                            @if (item.Estado == 1){
+                                <a onclick="eliminarCliente(@item.IdCliente)"><i class="fa-solid fa-trash"></i></a>
+                            }else{
+                                <a style="cursor:default;"><i class="fa-solid fa-trash" style="color:gray;"></i></a>
+                            }
+                        </td>
+                    </tr>
+                }
+                @{
+                    var clientes = ViewData["Clientes"] as List<Cliente>;
+                    if (clientes != null)
+                    {
+                        foreach (var cliente in clientes)
+                        {
+                            <tr class="clientesTodos" style="display:none;">
+                                <td>@cliente.TipoDocumento</td>
+                                <td>@cliente.Documento</td>
+                                <td onclick="mostrarInformacionCompleta(this,'nombreRSModal')" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modal">@cliente.NombreRazonSocial</td>
+                                <td onclick="mostrarInformacionCompleta(this,'correoModal')" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modal">@cliente.Correo</td>
+                                <td>@cliente.Telefono</td>
+                                <td class="px-3 border-0 pegarDerecha">
+                                    @if (cliente.Estado == 1)
+                                    {
+                                        <a asp-action="Update" asp-route-id="@cliente.IdCliente"><i id="Icono" class="fa-solid fa-pen"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a style="cursor:default;"><i id="Icono" class="fa-solid fa-pen" style="color:gray;"></i></a>
+                                    }
+                                </td>
+                                <td class="px-3 border-0 pegarCentro">
+                                    <label class="switch">
+                                        <input id="@cliente.IdCliente" type="checkbox" @(cliente.Estado == 1 ? "checked" : "") onchange="cambiarEstado(this)">
+                                        <span class="slider"></span>
+                                    </label>
+                                </td>
+                                <td class="px-3 border-0 pegarIzquierda">
+                                    @if (cliente.Estado == 1)
+                                    {
+                                        <a onclick="eliminarCliente(@cliente.IdCliente)"><i class="fa-solid fa-trash"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a style="cursor:default;"><i class="fa-solid fa-trash" style="color:gray;"></i></a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</article>
+@* <script>
+    window.open('/ReporteClientes.pdf', '_blank');
+</script> *@
+<div class="pagination-container mt-2 mb-4">
+    @if (Model != null && Model.PageCount > 1)
+    {
+        <div class="d-flex justify-content-center">
+            <nav aria-label="Page navigation bg-dark">
+                <ul class="pagination">
+
+                    <!-- Botón para la página anterior (oculto en la página 1) -->
+                    <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                        <a class="page-link" href="?page=@(Model.PageNumber - 1)" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <!-- Iterar sobre las páginas disponibles -->
+                    @for (var i = 1; i <= Model.PageCount; i++)
+                    {
+                        <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                            <a class="page-link" href="?page=@i">@i</a>
+                        </li>
+                    }
+
+                    <!-- Botón para la página siguiente (oculto en la última página) -->
+                    <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                        <a class="page-link" href="?page=@(Model.PageNumber + 1)" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    }
+</div>
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            text: 'Datos guardados exitosamente',
+            timer: 2000,
+            timerProgressBar: true,
+            confirmButtonColor: '#000000',
+            showConfirmButton: true
+        })
+    </script>
+}
+<!-- Modal para mostrar la informacion completa -->
+<div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="tituloModal"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="vaciarDatos()"></button>
+            </div>
+            <div class="modal-body">
+
+                <span id="correoModal" style="word-wrap: break-word;"></span>
+                <span id="nombreRSModal" style="word-wrap: break-word;"></span>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/Clientes/index.js"></script>
+<script src="~/js/reportes.js"></script>
+<script src="~/js/mostrarInfoCompleta.js"></script>
+
+
+<style>
+    /* Estilo para el enlace de página activa */
+    .pagination-container .pagination .page-item.active a {
+        background-color: #077336;
+        border-color: #077336;
+        color: black;
+    }
+
+    /* Estilo para los enlaces de página no activos */
+    .pagination-container .pagination .page-item a {
+        color: black;
+    }
+
+    /* Estilo para los botones de navegación (Anterior y Siguiente) */
+    .pagination-container .pagination .page-item.disabled a,
+    .pagination-container .pagination .page-item.disabled span {
+        color: black;
+        background-color: #ebebeb;
+    }
+</style>

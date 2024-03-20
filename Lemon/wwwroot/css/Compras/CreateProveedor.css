@@ -1,0 +1,19 @@
+﻿﻿#nav-item4 {
+    background: #27e83b;
+}
+
+.infoProveedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+@media (max-width: 768px) {
+    .infoproveedor {
+        display: grid;
+        place-items: center;
+        justify-content: initial;
+        align-items: initial;
+    }
+}

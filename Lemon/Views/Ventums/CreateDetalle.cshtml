@@ -1,0 +1,166 @@
+﻿@model IEnumerable<Lemon.Models.Producto>
+<link rel="stylesheet" href="~/css/tablas.css">
+<link rel="stylesheet" href="~/css/Ventas/agregarDetalle.css">
+@{
+    ViewData["Title"] = "CreateDetalle";
+}
+<header class="col-12 mt-1" style="overflow-x:auto;">
+    <div class="infoProducto border d-flex align-items-center ms-2 me-2" style="height:100px; min-width:1100px; border-radius:10px; font-size:20px;">
+
+        <div>
+            <button type="button" class="btn btn-secondary ms-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Buscar producto
+            </button>
+        </div>
+
+        <div class="form-group ms-5 text-center">
+            <label class="control-label">Id Producto</label>
+            <input id="inputIdProducto" class="form-control" disabled />
+        </div>
+        <div class="form-group ms-5 text-center">
+            <label class="control-label">Nombre</label>
+            <input id="inputNombre" class="form-control" disabled />
+        </div>
+        <div class="form-group ms-5 text-center">
+            <label class="control-label">Costo</label>
+            <input id="inputCosto" type="text" class="form-control" />
+        </div>
+        <div class="form-group ms-5 text-center">
+            <label class="control-label">Kilos disponibles</label>
+            <input id="inputCantidadD" type="text"  class="form-control" disabled />
+        </div>
+
+
+        <div class="form-group ms-5 text-center">
+            <label class="control-label">Kilos a vender</label>
+            <input id="inputCantidadC" type="text" class="form-control" />
+        </div>
+
+        <div>
+            <button id="btnAgregar" type="button" class="btn btn-success ms-5 me-5 ">
+                Agregar
+            </button>
+        </div>
+    </div>
+</header>
+
+<article class="col-12 mt-3" style="overflow-x:auto; background:white;">
+    <div id="productosAgregados" class="mt-2 border border-color-black ms-2 me-2" style="border-radius:10px; min-width:600px;  font-size:20px; height:300px; max-height:300px; overflow-y:auto;">
+        <div class="d-flex justify-content-between textos">
+            <h3 class="ms-5">Productos agregados</h3>
+            <h3 id="totalVenta" class="me-5">Total: $0</h3>
+        </div>
+        <table id="tablaProductos" class="mt-2 mb-2 col-12">
+            <thead>
+                <tr style="border:0; background:#ebebeb;">
+                    <th>Id Producto</th>
+                    <th>Nombre</th>
+                    <th>Costo</th>
+                    <th>Kilos a vender</th>
+                    <th>Subtotal</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var detalles = ViewData["detalles"] as List<Producto>;
+                    if (detalles != null)
+                    {
+                        foreach (var detalle in detalles)
+                        {
+                            <tr data-id="@detalle.IdProducto" class="filaProducto">
+                                <td>@detalle.IdProducto</td>
+                                <td>@detalle.Nombre</td>
+                                <td>$@(string.Format("{0:N2}", detalle.Costo))</td>
+                                <td>@detalle.Cantidad</td>
+                                <td>$@(string.Format("{0:N2}", detalle.Costo * detalle.Cantidad))</td>
+                                <td><button class="btn btn-dark">Eliminar</button></td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</article>
+<footer class="col-12 mb-5 d-flex justify-content-center" style="background:white; overflow-x:auto;">
+    <div class="d-flex justify-content-end" style="background:white; min-width:350px; overflow-x:auto;">
+        <button onclick="validarCancelar()" class="btn btn-dark mt-2 me-2">Cancelar</button>
+
+        <button id="progreso" class="btn btn-outline-secondary text-dark mt-2 me-2">1</button>
+        <button id="progreso1" onclick="validarAgregarDetalles()" class="btn btn-outline-secondary text-dark mt-2 me-2">2</button>
+        <button onclick="validarAgregarDetalles()" class="btn btn-outline-secondary text-dark mt-2 me-2">3</button>
+
+        <button onclick="validarAgregarDetalles()" class="btn btn-success mt-2 me-2">Siguiente</button>
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade col-12" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Buscar producto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Buscar producto" aria-label="Search" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: gray; font-size:30px;"></i></button>
+                    </div>
+                </div>
+
+                <article class="col-12 " style="overflow-x:auto; background:white;">
+                    <div class="mt-2 border border-color-black ms-2 me-2" style="border-radius:10px; min-width:600px; overflow-y:auto;  font-size:20px; height:450px; max-height:450px; background:white; ">
+                        <table id="productosTable" class="tablaDeDatos mb-2 col-12">
+                            <thead>
+                                <tr style="border:0;">
+                                    <th>Id Producto</th>
+                                    <th>Nombre</th>
+                                    <th>Cantidad Kilos</th>
+                                    <th>Descripcion</th>
+                                    <th>Costo</th>
+                                    <th>Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.IdProducto)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cantidad)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Descripcion)
+                                        </td>
+                                        <td>
+                                        $@(string.Format("{0:N2}",item.Costo))
+
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-success btn-seleccionar">Seleccionar</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/Ventas/createDetalle.js"></script>

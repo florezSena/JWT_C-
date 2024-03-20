@@ -1,0 +1,95 @@
+﻿* {
+    font-size: 20px;
+}
+
+#nav-item1 {
+    background: #27e83b;
+}
+
+.topRoles {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .topRoles {
+        display: block;
+    }
+
+        .topRoles div {
+            margin: auto;
+        }
+
+        .topRoles a {
+            width: 100%;
+        }
+}
+
+#Icono {
+    color: black;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 28px;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.4s;
+    }
+
+input[type="checkbox"] {
+    display: none;
+}
+
+    input[type="checkbox"]:checked + .slider {
+        background-color: #077336;
+    }
+
+        input[type="checkbox"]:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+/* Estilo para la paginación */
+.pagination-container .pagination .page-item {
+    border-color: #077336;
+}
+
+    /* Estilo para el enlace de página activa */
+    .pagination-container .pagination .page-item.active a {
+        background-color: #077336;
+        border-color: #077336;
+        color: black;
+    }
+
+    /* Estilo para los enlaces de página no activos */
+    .pagination-container .pagination .page-item a {
+        color: black;
+    }
+
+    /* Estilo para los botones de navegación (Anterior y Siguiente) */
+    .pagination-container .pagination .page-item.disabled a,
+    .pagination-container .pagination .page-item.disabled span {
+        color: black;
+        background-color: #ebebeb;
+    }

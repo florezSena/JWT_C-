@@ -1,0 +1,13 @@
+﻿#nav-item2 {
+    background: #27e83b;
+}
+
+.formularios {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .formularios {
+        display: block;
+    }
+}

@@ -1,0 +1,21 @@
+﻿* {
+    font-size: 20px;
+}
+#nav-item6 {
+    background: #27e83b;
+}
+.topVentas{
+    display: flex;
+}
+@media (max-width: 768px) {
+    .topVentas {
+        display: block;
+    }
+    .topVentas div {
+        margin: auto;
+    }
+
+    .topVentas a {
+        width: 100%;
+    }
+}

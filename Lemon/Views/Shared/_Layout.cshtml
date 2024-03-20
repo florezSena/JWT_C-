@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LEMON</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/f583145028.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="~/css/Layout/layout.css" />
+</head>
+
+<body>
+    <header>
+        <div style="height:100px; border-bottom:5px solid #077336; display:flex;">
+            <div class="col" style=" display:grid; align-items:center;">
+                <a class="text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-user fa-2xl"></i></a>
+            </div>
+
+            <div class="col" style=" display:grid; align-items:center; justify-content:center;">
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img style="height:90px;" src="~/img/Lemon_Logo.png" /></a>
+            </div>
+
+            <div class="col logout" style=" display:grid; align-items:center; justify-content: flex-end;">
+                <a class="text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
+            </div>
+        </div>
+
+    </header>
+    <a id="btnMenuLateral" class="navbar-toggler btn d-lg-none col-12" data-bs-toggle="collapse" data-bs-target="#menuLateral">
+        <i class="fa-solid fa-bars" style="color: #000000;"></i>
+    </a>
+    <div style="background:white; display:flex;">
+        <div id="menuLateral" class="menu col-md-2 col-4" style="background:white; ">
+            <div id="nav-item1" class="navegaciones"><a asp-controller="Roles" asp-action="Index">Configuración</a></div>
+            <div id="nav-item2" class="navegaciones"><a asp-controller="Usuarios" asp-action="Index">Usuarios</a></div>
+            <div id="nav-item3" class="navegaciones"><a asp-controller="Proveedores" asp-action="Index">Proveedores</a></div>
+            <div id="nav-item4" class="navegaciones"><a asp-controller="Compras" asp-action="Index">Compras</a></div>
+            <div id="nav-item5" class="navegaciones"><a asp-controller="Productos" asp-action="Index">Productos</a></div>
+            <div id="nav-item6" class="navegaciones"><a style="width:100%;" asp-controller="Ventums" asp-action="Index">Ventas</a></div>
+            <div id="nav-item7" class="navegaciones"><a asp-controller="Clientes" asp-action="Index">Clientes</a></div>
+            <div id="nav-item8" class="navegaciones"><a asp-controller="Movimientos" asp-action="Index">Movimientos</a></div>
+        </div>
+        <div id="renderModulos" class="col-lg-10 col-md-10 col-8" style="background:white; overflow-y:auto;">
+            <main role="main" >
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <footer id="footerLayout" class="border-top text-muted">
+        <div>
+            © 2024 LEMON. Todos los derechos reservados
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+<script>
+    $(window).on('resize', function () {
+        var windowWidth = $(window).width();
+        if (windowWidth >= 768) {
+            $('#menuLateral').removeClass('collapse').addClass('show');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var renderModulos = document.getElementById('renderModulos');
+        var btnMenuLateral = document.getElementById('btnMenuLateral');
+
+        // Función para ajustar el col de renderModulos
+        function ajustarCol() {
+            if (btnMenuLateral.getAttribute('aria-expanded') == 'true') {
+                renderModulos.classList.remove('col-12');
+                renderModulos.classList.remove('col-md-12');
+
+                renderModulos.classList.add('col-8');
+                renderModulos.classList.add('col-md-10');
+
+            } else {
+
+                renderModulos.classList.remove('col-md-10');
+                renderModulos.classList.remove('col-8');
+
+                renderModulos.classList.add('col-12');
+                renderModulos.classList.add('col-md-12');
+            }
+            renderModulos.classList.add('col-lg-10');
+        }
+
+        // Agregar un event listener al botón para ajustar el col de renderModulos cuando se haga clic
+        btnMenuLateral.addEventListener('click', ajustarCol);
+
+    });
+</script>

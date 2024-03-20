@@ -1,0 +1,161 @@
+﻿@model Lemon.Models.Ventum
+
+<link rel="stylesheet" href="~/css/Ventas/createCliente.css">
+<link rel="stylesheet" href="~/css/tablas.css">
+
+<style>
+    /*Para que no se dañe la tabla de clientes con clientes con campos demasiado largos*/
+    td {
+        max-width: 150px; /* Establece el ancho máximo deseado */
+        overflow: hidden; /* Oculta el contenido que exceda el ancho */
+        text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del contenido que exceda el ancho */
+        white-space: nowrap; /* Evita que el contenido se divida en varias líneas */
+    }
+</style>
+@{
+    ViewData["Title"] = "Create";
+}
+<div id="Contenedor" class="col-12 border rounded border-white mt-2 align-items-center text-center">
+    <article id="articleCliente" class="border align-items-center ms-md-5 ms-0 me-md-5 me-0" style="font-size:20px; background:white;">
+
+        <div class="col-md-2 col-9 ms-md-5 ms-0 mt-md-0 mt-2" style="background:white;">
+            <i class="fa-regular fa-user fa-2xl" style="color: #000000;"></i>
+            <button type="button" style="width:100%;" class="btn btn-secondary mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Buscar cliente
+            </button>
+        </div>
+        <div class="col-9">
+            <section class="infoCliente border rounded border-white mt-md-5 mt-1" style="background:white;">
+
+                <div class="ms-md-5 ms-0"></div>
+                <div class="form-group text-center ms-md-5 ms-0 mt-md-0 mt-1 col-md-2 col-11">
+                    <label class="control-label">Documento</label>
+                    <input id="inputDocumento" class="form-control" disabled value="@ViewData["Documento"]" />
+                </div>
+
+                <div class="form-group text-center ms-md-5 ms-0 me-md-5 me-0 mt-md-0 mt-1 col-md-3 col-11">
+                    <label class="control-label">Nombre o razón social</label>
+                    <input id="inputNombre" type="text" class="form-control" disabled value="@ViewData["NombreRS"]" />
+                </div>
+            </section>
+
+            <section class="infoCliente mt-md-5 mt-1 mb-5" style="background:white;">
+                <div class="ms-md-5 ms-0"></div>
+
+                <div class="form-group text-center ms-md-5 ms-0 mt-md-0 mt-1 col-md-2 col-11">
+                    <label class="control-label">Telefono</label>
+                    <input id="inputTelefono" class="form-control" disabled value="@ViewData["Telefono"]" />
+                </div>
+
+                <div class="form-group text-center ms-md-5 ms-0 mt-md-0 mt-1 me-md-5 me-0 col-md-3 col-11">
+                    <label class="control-label">Correo</label>
+                    <input id="inputCorreo" type="text" class="form-control" disabled value="@ViewData["Correo"]" />
+                </div>
+            </section>
+        </div>
+    </article>
+</div>
+
+<footer class="col-12 mt-1 mb-5 d-flex justify-content-center" style="background:white; overflow-x:auto;">
+    <div class="d-flex justify-content-end" style="background:white; min-width:350px; overflow-x:auto;">
+        <a asp-controller="Ventums" asp-action="CreateDetalle" class="btn btn-dark mt-2 me-2">Volver</a>
+
+        <a asp-controller="Ventums" asp-action="CreateDetalle" id="progresoAnterior" class="btn btn-outline-secondary text-dark mt-2 me-2">1</a>
+        <button id="progreso" class="btn btn-outline-secondary text-dark mt-2 me-2">2</button>
+        <button onclick="validarCliente()" class="btn btn-outline-secondary text-dark mt-2 me-2">3</button>
+
+        <button onclick="validarCliente()" class="btn btn-success mt-2 me-2">Siguiente</button>
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade col-12" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Buscar cliente</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Buscar cliente" aria-label="Search" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: gray; font-size:30px;"></i></button>
+                    </div>
+                </div>
+
+                <article class="col-12 " style="overflow-x:auto; background:white;">
+                    <div class="mt-2 border border-color-black ms-2 me-2" style="border-radius:10px; min-width:600px; font-size:20px; background:white; ">
+                        <div style="height:5px; background:#ebebebeb; border-top-right-radius:10px; border-top-left-radius:10px;"></div>
+                        <table id="clientesTable" class="tablaDeDatos mb-2 col-12">
+                            <thead>
+                                <tr style="border:0;">
+                                    <th style="display:none;">Id Cliente</th>
+                                    <th>Documento</th>
+                                    <th>Nombre o razón social</th>
+                                    <th>Correo</th>
+                                    <th>Telefono</th>
+                                    <th>Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var clientes = ViewData["Clientes"] as List<Cliente>;
+                                    if (clientes != null)
+                                    {
+                                        foreach (var cliente in clientes)
+                                        {
+                                            <tr data-id="@cliente.IdCliente" class="filaProducto">
+                                                <td style="display:none;">@cliente.IdCliente</td>
+                                                <td>@cliente.Documento</td>
+                                                <td>@cliente.NombreRazonSocial</td>
+                                                <td>@cliente.Correo</td>
+                                                <td>@cliente.Telefono</td>
+                                                <td>
+                                                    <button class="btn btn-success btn-seleccionar">Seleccionar</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@if (ViewData["Documento"] != null)
+{
+    <script>
+        document.getElementById('progreso').style.background = "#ebebebeb";
+    </script>
+}
+@if (ViewData["Detalles"] == null)
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error no haz guardado detalles',
+            text: 'Antes de agregar el cliente debes guardar detalles',
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: true,
+            confirmButtonColor: '#000000',
+            didClose: () => {
+                window.location.href = '/Ventums/CreateDetalle';
+            }
+        })
+    </script>
+}else{
+    <script>
+        document.getElementById('progresoAnterior').style.background = "#ebebebeb";
+    </script>
+}
+<script src="~/js/Ventas/createCliente.js"></script>

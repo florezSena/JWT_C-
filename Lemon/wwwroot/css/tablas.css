@@ -1,0 +1,95 @@
+﻿table {
+    text-align: center;
+    font-size:20px;
+}
+thead tr {
+    background: #ebebeb;
+}
+tr {
+    border: 0;
+    height: 50px;
+    border-top: 1px solid #ebebeb;
+}
+td {
+    max-width: 200px; /* Establece el ancho máximo deseado */
+    overflow: hidden; /* Oculta el contenido que exceda el ancho */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del contenido que exceda el ancho */
+    white-space: nowrap; /* Evita que el contenido se divida en varias líneas */
+}
+.pegarCentro{
+    width:10px;
+}
+.pegarDerecha {
+    background: white;
+    width: 10px;
+    position: relative;
+}
+.pegarDerecha a {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.pegarIzquierda {
+    background: white;
+    width: 10px;
+    position: relative;
+}
+.pegarIzquierda a {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#Icono {
+    color: black;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 28px;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.4s;
+    }
+
+input[type="checkbox"] {
+    display: none;
+}
+
+    input[type="checkbox"]:checked + .slider {
+        background-color: #077336;
+    }
+
+        input[type="checkbox"]:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+/* Estilo para la paginación */
+.pagination-container .pagination .page-item {
+    border-color: #077336;
+}

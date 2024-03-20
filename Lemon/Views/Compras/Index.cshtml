@@ -1,0 +1,172 @@
+﻿@using X.PagedList
+@model X.PagedList.IPagedList<Lemon.Models.Compra>
+<link rel="stylesheet" href="~/css/Compras/Index.css">
+<link rel="stylesheet" href="~/css/tablas.css">
+
+@{
+    ViewData["Title"] = "Compras";
+}
+<div class="topCompras mt-2 pb-2" style="background-color: white;">
+
+    <div class="col-md-4 col-11 d-flex justify-content-center">
+        <a asp-action="CreateDetalle" type="button" class="btn btn-outline-dark btn-success text-white">Registrar Compra <i class=" fa-solid fa-plus fa-lg" style="color: #ffffff;"></i></a>
+    </div>
+    <div class="col-md-6 col-11 mt-md-0 mt-2">
+        <div class="input-group">
+            <input id="buscarCompra" type="text" class="form-control" placeholder="Buscar Compra" aria-label="Search" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" onclick="vaciarInput()" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: gray; font-size:30px;"></i></button>
+        </div>
+    </div>
+    <div class="col-md-2 col-11 d-flex justify-content-center mt-md-0 mt-2">
+        <a asp-action="Create" style="background:#ebebeb;" type="button" class="btn btn-outline-dark "><i class="fa-solid fa-file-pdf fa-xl" style="color: #000000;"></i></a>
+    </div>
+</div>
+
+<article class="col-12 " style="overflow-x:auto; background:white; height:345px;">
+    <div id="Compras" class="mt-2 border border-color-black ms-2 me-2" style="border-radius:10px; min-width:1100px;">
+        <table id="tablaCompras" class="mb-2 col-12">
+            <thead>
+                <tr>
+                    <th>#Documento</th>
+                    <th>Nombre o razon social</th>
+                    <th>Fecha</th>
+                    <th>Total Compra</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="comprasPaginado" style="background: @(item.Estado != 1 ? "#ebebeb" : "white");">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdProveedorNavigation.Documento)
+                        </td>
+                        <td>
+                            @if (item.IdProveedorNavigation != null)
+                            {
+                                @Html.DisplayFor(modelItem => item.IdProveedorNavigation.NombreRazonSocial)
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValorCompra)
+                        </td>
+                        <td class="border-0" style=" width:10px;">
+                            @if (item.Estado == 1)
+                            {
+
+
+                                <a onclick="cambiarEstado(@item.Estado,@item.IdCompra)" style="cursor:pointer;"><i class="fa-solid fa-trash-can-arrow-up fa-lg" style="color: #077336;"></i></a>
+                            }
+                            else
+                            {
+                                <a><i class="fa-solid fa-trash-can-arrow-up fa-lg" style="color: #000000;"></i></a>
+                            }
+                        </td>
+                        <td class="border-0" style=" width:70px;">
+                            <a asp-action="VisualizarVenta" asp-route-id="@item.IdCompra"><i class="fa-regular fa-eye fa-lg" style="color: #000000;"></i></a>
+                        </td>
+                    </tr>
+                }
+                @{
+                    var compras = ViewData["Compras"] as List<Compra>;
+                    if (compras != null)
+                    {
+                        foreach (var compra in compras)
+                        {
+                            <tr class="ComprasTodos" style="display:none; background: @(compra.Estado != 1 ? "#ebebeb" : "white");">
+                                <td>@compra.IdCompra</td>
+                                <td>
+                                    @if (compra.IdProveedorNavigation != null)
+                                    {
+                                        @compra.IdProveedorNavigation.NombreRazonSocial
+                                    }
+                                </td>
+                                <td>@compra.Fecha</td>
+                                <td>@compra.ValorCompra</td>
+                                <td class="border-0" style=" width:10px;">
+                                    @if (compra.Estado == 1)
+                                    {
+
+
+                                        <a onclick="cambiarEstado(@compra.Estado,@compra.IdCompra)" style="cursor:pointer;"><i class="fa-solid fa-trash-can-arrow-up fa-lg" style="color: #077336;"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a><i class="fa-solid fa-trash-can-arrow-up fa-lg" style="color: #000000;"></i></a>
+                                    }
+                                </td>
+                                <td class="border-0" style="background:white; width:70px;">
+                                    <a asp-action="VisualizarCompra" asp-route-id="@compra.IdCompra"><i class="fa-regular fa-eye fa-lg" style="color: #000000;"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<div class="pagination-container mt-2">
+    @if (Model != null && Model.PageCount > 1)
+    {
+        <div class="d-flex justify-content-center mb-5">
+            <nav aria-label="Page navigation bg-dark">
+                <ul class="pagination">
+
+                    <!-- Botón para la página anterior (oculto en la página 1) -->
+                    <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                        <a class="page-link" href="?page=@(Model.PageNumber - 1)" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <!-- Iterar sobre las páginas disponibles -->
+                    @for (var i = 1; i <= Model.PageCount; i++)
+                    {
+                        <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                            <a class="page-link" href="?page=@i">@i</a>
+                        </li>
+                    }
+
+                    <!-- Botón para la página siguiente (oculto en la última página) -->
+                    <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                        <a class="page-link" href="?page=@(Model.PageNumber + 1)" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    }
+</div>
+
+<link rel="stylesheet" href="~/css/tablas.css">
+<link rel="stylesheet" href="~/css/Compras/index.css">
+<script src="~/js/Compras/index.js"></script>
+
+
+<style>
+    /* Estilo para el enlace de página activa */
+    .pagination-container .pagination .page-item.active a {
+        background-color: #077336;
+        border-color: #077336;
+        color: black;
+    }
+
+    /* Estilo para los enlaces de página no activos */
+    .pagination-container .pagination .page-item a {
+        color: black;
+    }
+
+    /* Estilo para los botones de navegación (Anterior y Siguiente) */
+    .pagination-container .pagination .page-item.disabled a,
+    .pagination-container .pagination .page-item.disabled span {
+        color: black;
+        background-color: #ebebeb;
+    }
+</style>

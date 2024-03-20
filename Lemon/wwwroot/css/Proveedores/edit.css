@@ -1,0 +1,12 @@
+﻿#nav-item3 {
+    background: #27e83b;
+}
+#formActualizar {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    #formActualizar {
+        display: block;
+    }
+}

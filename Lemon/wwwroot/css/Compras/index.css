@@ -1,0 +1,25 @@
+﻿﻿* {
+    font-size: 20px;
+}
+
+#nav-item4 {
+    background: #27e83b;
+}
+
+.topCompras {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .topCompras {
+        display: block;
+    }
+
+        .topCompras div {
+            margin: auto;
+        }
+
+    .topComprass a {
+        width: 100%;
+    }
+}

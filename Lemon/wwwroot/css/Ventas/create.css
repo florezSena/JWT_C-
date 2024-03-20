@@ -1,0 +1,19 @@
+﻿#nav-item6 {
+    background: #27e83b;
+}
+
+.infoVenta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+@media (max-width: 768px) {
+    .infoVenta {
+        display: grid;
+        place-items: center;
+        justify-content: initial;
+        align-items: initial;
+    }
+}

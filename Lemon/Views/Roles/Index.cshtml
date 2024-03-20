@@ -1,0 +1,192 @@
+﻿@using X.PagedList
+@model X.PagedList.IPagedList<Lemon.Models.Rol>
+
+<link rel="stylesheet" href="~/css/Roles/index.css"> 
+<link rel="stylesheet" href="~/css/tablas.css">
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Roles";
+}
+<div class="topRoles mt-2 pb-2" style="background-color: white;">
+
+    <div class="col-md-3 col-11 d-flex justify-content-center">
+        <a asp-action="Create" type="button" class="btn btn-outline-dark btn-success text-white">Registrar Permisos<i class=" fa-solid fa-plus fa-lg" style="color: #ffffff;"></i></a>
+    </div>
+    <div class="col-md-6 col-11 mt-md-0 mt-2">
+        <div class="input-group">
+            <input id="buscarRol" type="text" class="form-control" placeholder="Buscar Rol" aria-label="Search" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" onclick="vaciarInput()" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: gray; font-size:30px;"></i></button>
+        </div>
+    </div>
+    <div class="col-md-3 col-11 d-flex justify-content-center mt-md-0 mt-2">
+        @* <a onclick=" generarPdf('Proveedores','Proveedores') " style="background:#ebebeb;" type="button" class="btn btn-outline-dark "><i class="fa-solid fa-file-pdf fa-xl" style="color: #000000;"></i></a> *@
+        <a asp-controller="Roles" asp-action="CreateRP" style="background:#ebebeb;" type="button" class="btn btn-outline-dark "><i class="fa-solid fa-file-pdf fa-xl" style="color: #000000;"></i></a>
+    </div>
+</div>
+
+<article class="col-12 " style="overflow-x:auto; background:white; height:325px;">
+    <div class="mt-2 border border-color-black ms-2 me-2" style="border-radius:10px; min-width:1100px;">
+        <table class="mb-2 col-12" style="text-align:center;">
+            <thead>
+                <tr>
+                    <th>Id Rol</th>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th colspan="4">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="RolesPaginado">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdRol)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        @if (item.Estado == 1)
+                        {
+                            <td>Activo</td>
+                        }
+                        else
+                        {
+                            <td>Inactivo</td>
+                        }
+                        <td class="pegarDerecha">
+                            @if (item.Estado == 1)
+                            {
+                                <a asp-action="Update" asp-route-id="@item.IdRol"><i id="Icono" class="fa-solid fa-pen"></i></a>
+                            }
+                            else
+                            {
+                                <a style="cursor:default;"><i id="Icono" class="fa-solid fa-pen" style="color: gray"></i></a>
+                            }
+                        </td>
+                        <td class="px-3 border-0 pegarDerecha">
+                            <a asp-controller="RolXPermiso" asp-action="Index" asp-route-id="@item.IdRol"><i id="Icono" class="fa-solid fa-eye"></i></a>
+                        </td>
+                        <td class="px-3 border-0 pegarCentro">
+                            <label class="switch">
+                                <input id="@item.IdRol" type="checkbox" @(item.Estado == 1 ? "checked" : "") onchange="cambiarEstado(this)">
+                                <span class="slider"></span>
+                            </label>
+                        </td>
+                        <td class="px-3 border-0 pegarIzquierda">
+                            @if (item.Estado == 1)
+                            {
+                                <a onclick="eliminarRoles(@item.IdRol)"><i class="fa-solid fa-trash"></i></a>
+                            }
+                            else
+                            {
+                                <a style="cursor:default;"><i class="fa-solid fa-trash" style="color: gray"></i></a>
+                            }
+                        </td>
+                    </tr>
+                }
+                @{
+                    var roles = ViewData["Roles"] as List<Rol>;
+                    if (roles != null)
+                    {
+                        foreach (var rol in roles)
+                        {
+                            <tr class="RolesTodos" style="display:none;">
+                                <td>@rol.IdRol</td>
+                                <td>@rol.Nombre</td>
+                                @if (rol.Estado == 1)
+                                {
+                                    <td>Activo</td>
+                                }
+                                else
+                                {
+                                    <td>Inactivo</td>
+                                }
+                                <td class="pegarDerecha">
+                                    @if (rol.Estado == 1)
+                                    {
+                                        <a asp-action="Update" asp-route-id="@rol.IdRol"><i id="Icono" class="fa-solid fa-pen"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a style="cursor:default;"><i id="Icono" class="fa-solid fa-pen" style="color: gray"></i></a>
+                                    }
+                                </td>
+                                <td class="px-3 border-0 pegarDerecha">
+                                    <a asp-controller="RolXPermiso" asp-action="Index" asp-route-id="@rol.IdRol"><i id="Icono" class="fa-solid fa-eye"></i></a>
+                                </td>
+                                <td class="px-3 border-0 pegarCentro">
+                                    <label class="switch">
+                                        <input id="@rol.IdRol" type="checkbox" @(rol.Estado == 1 ? "checked" : "") onchange="cambiarEstado(this)">
+                                        <span class="slider"></span>
+                                    </label>
+                                </td>
+                                <td class="px-3 border-0 pegarIzquierda">
+                                    @if (rol.Estado == 1)
+                                    {
+                                        <a onclick="eliminarRoles(@rol.IdRol)"><i class="fa-solid fa-trash"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a style="cursor:default;"><i class="fa-solid fa-trash" style="color: gray"></i></a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</article>
+<div class="pagination-container mt-2">
+    @if (Model != null && Model.PageCount > 1)
+    {
+        <div class="d-flex justify-content-center mb-5">
+            <nav aria-label="Page navigation bg-dark">
+                <ul class="pagination">
+
+                    <!-- Botón para la página anterior (oculto en la página 1) -->
+                    <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                        <a class="page-link" href="?page=@(Model.PageNumber - 1)" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <!-- Iterar sobre las páginas disponibles -->
+                    @for (var i = 1; i <= Model.PageCount; i++)
+                    {
+                        <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                            <a class="page-link" href="?page=@i">@i</a>
+                        </li>
+                    }
+
+                    <!-- Botón para la página siguiente (oculto en la última página) -->
+                    <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                        <a class="page-link" href="?page=@(Model.PageNumber + 1)" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    }
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            text: 'Datos guardados exitosamente',
+            timer: 2000,
+            timerProgessBar: true,
+            confirmButtonColor: '#000000',
+            showConfirmButton: true
+        })
+    </script>
+}
+
+<script src="~/js/Roles/index.js"></script>
+<script src="~/js/reportes.js"></script>

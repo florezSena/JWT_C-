@@ -1,0 +1,76 @@
+﻿#nav-item1 {
+    background: #27e83b;
+}
+
+#permisos {
+    display: flex;
+}
+
+#permisos div{
+    position: relative;
+}
+#columna1 {
+    position: absolute;
+    right: 25%;
+}
+#columna2 {
+    position: absolute;
+    left: 25%;
+}
+@media (max-width: 768px) {
+    #permisos {
+        display: block;
+    }
+    #permisos div {
+        position: static;
+    }
+    #columna1 {
+        margin:auto;
+        position: static;
+    }
+    #columna2 {
+        margin: auto;
+        position: static;
+    }
+}
+
+
+
+/*esta es la barra gris de fondo el cursor pointer sirve para que aparezca la animacion de click
+    y el position relative para que la bola blanca de el efecto de estar dentro
+    como en el html a lbl-switch le dijimos que era un for de btn-switch cuando lo tocamos es como si
+    tocaramos el btn*/
+.lbl-switch {
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+    background: gray;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+}
+    /*esta es la bola blanca el position absolute es para que de el efecto de estar dentro
+    y la transition es para la animacion*/
+    .lbl-switch:after {
+        position: absolute;
+        content: '';
+        width: 22px;
+        height: 22px;
+        background: white;
+        border-radius: 100px;
+        top: 4px;
+        left: 5px;
+        transition: 0.3s;
+    }
+
+.btn-switch {
+    display: none;
+}
+    /*con este le decimos que cuando le den check el fondo cambie*/
+    .btn-switch:checked ~ .lbl-switch {
+        background: #077336;
+    }
+        /*con este que cuando le de check mueva la bola blanca*/
+        .btn-switch:checked ~ .lbl-switch:after {
+            left: 28px;
+        }

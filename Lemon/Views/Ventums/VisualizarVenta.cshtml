@@ -1,0 +1,113 @@
+﻿@model Lemon.Models.Ventum
+<link rel="stylesheet" href="~/css/Ventas/visualizarVenta.css">
+
+@{
+    ViewData["Title"] = "VisualizarVenta";
+}
+
+<div id="Contenedor"  class="col-12 border rounded border-white mt-2 align-items-center text-center">
+    <h3>Informacion de la venta</h3>
+    <article class="col-12 " style="overflow-x:auto; background:white;">
+        <div id="infoVenta" class=" d-flex align-items-center justify-content-center border rounded border-white" style="min-width:1000px;">
+            <div class="form-group" style="min-width:50px; width:50px;">
+                <label asp-for="IdVenta" class="control-label"></label>
+                <input asp-for="IdVenta" class="form-control" disabled />
+            </div>
+            <div class="form-group ms-4" style="min-width:100px;">
+                <label class="control-label">Cliente</label>
+                @{
+                    var nombreRazonSocial = Model.IdClienteNavigation?.NombreRazonSocial;
+                }
+                <input value="@nombreRazonSocial" class="form-control" disabled />
+            </div>
+            <div class="form-group ms-4">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" disabled />
+            </div>
+            <div class="form-group ms-4" style="min-width:150px;">
+                <label asp-for="Total" class="control-label"></label>
+                <input asp-for="Total" id="totalInicial" class="form-control d-none" disabled />
+                <input type="text" id="totalMostrar" class="form-control" disabled />
+            </div>
+            <div class="form-group ms-4" style="min-width:100px;">
+                <label class="control-label">Descuento(%)</label>
+                <input type="text" id="inputDescuento" value="" class="form-control" disabled />
+            </div>
+            <div class="form-group ms-4" style="min-width:100px;">
+                <label asp-for="Estado" class="control-label"></label>
+                @if (Model.Estado == 1)
+                {
+                    <input class="form-control" value="Realizada" disabled />
+                }
+                else
+                {
+                    <input class="form-control" value="Anulada" disabled />
+
+                }
+            </div>
+        </div>
+    </article>
+    <h3 class="mt-1">Informacion de los detalles</h3>
+    <article class="col-12 " style="overflow-x:auto; background:white;">
+        <div id="detallesVenta" class="mt-2 border border-color-black ms-2 me-2" style="border-radius:10px; min-width:600px; overflow-y:auto;  font-size:20px; height:250px; max-height:250px; background:white; ">
+            <table id="tablaProductos" class="mb-2 col-12">
+                <thead>
+                    <tr style="border:0; background:#ebebeb;">
+                        <td>Id</td>
+                        <td>Producto</td>
+                        <td>Kilos vendidos</td>
+                        <td>Precio Kilo</td>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var detalles = ViewData["DetallesVenta"] as List<Detalleventum>;
+                        if (detalles != null)
+                        {
+                            float totalReal = 0;
+                            foreach (var detalle in detalles)
+                            {
+                                            <tr style="border: 0;height: 50px;border-top: 1px solid #ebebeb;">
+                                                <td>@detalle.IdDetalleVenta</td>
+                                                @{
+                                        var nombre = detalle.IdProductoNavigation?.Nombre;
+                                                }
+                                                <td>@nombre</td>
+                                                <td>@detalle.Cantidad</td>
+                                                <td>$@string.Format("{0:N2}", detalle.PrecioKilo)</td>
+                                                <td>$@string.Format("{0:N2}", detalle.Subtotal)</td>
+                                            </tr>
+                               totalReal+= detalle.Subtotal;
+                            }
+                                        <input id="totalReal" value="@totalReal" style="display:none;"/>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </article>
+
+
+
+    <div class="col-12 d-flex justify-content-end mt-2">
+        <a asp-action="Index" class="btn btn-secondary me-2 col-lg-1 col-md-2 col-8">Volver</a>
+    </div>
+</div>
+
+<script>
+    var totalReal = document.getElementById('totalReal').value;
+    var totalInicial = document.getElementById('totalInicial').value;
+
+    var descuento = 100 - ((totalInicial * 100) / totalReal);
+
+    document.getElementById('inputDescuento').value = descuento + "%";
+
+    const totalFormateado = (parseFloat(totalInicial)).toLocaleString('es-ES', {
+        minimumFractionDigits: 2,
+        useGrouping: true,
+        grouping: '.'
+    });
+    document.getElementById('totalMostrar').value = "$"+totalFormateado;
+
+</script>

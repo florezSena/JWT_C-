@@ -1,0 +1,224 @@
+﻿@model Lemon.Models.Compra
+<link rel="stylesheet" href="~/css/tablas.css">
+<style>
+    #nav-item6 {
+        background: #27e83b;
+    }
+</style>
+@{
+    ViewData["Title"] = "Create";
+}
+<header class="mt-1 col-12" style="overflow-x:auto;">
+    <div class="infoProveedor border d-flex align-items-center ms-2 me-2 " style="height:100px; border-radius:10px; font-size:20px; min-width:800px;">
+
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary ms-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Buscar Proveedor
+            </button>
+        </div>
+
+        <div class="form-group ms-5 text-center col-2">
+            <label class="control-label">IdProveedor</label>
+            <input asp-for="IdProveedor" id="inputIdProveedor" class="form-control" disabled />
+            <span asp-validation-for="IdProveedor" class="text-danger"></span>
+        </div>
+
+        <div class="form-group ms-5 text-center col-2">
+            <label class="control-label">#Documento</label>
+            <input id="inputDocumento" class="form-control" disabled />
+        </div>
+
+        <div class="form-group ms-5 text-center col-2">
+            <label class="control-label">Nombre o razon social</label>
+            <input id="inputNombre" type="text" class="form-control" disabled />
+        </div>
+
+        <div>
+            <button id="btnRealizarCompra" onclick="validarVenta()" type="button" class="btn btn-success ms-5 me-5 ">
+                Realizar Compra
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Modal -->
+<div class="modal fade col-12" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Buscar Proveedor</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Buscar Proveedor" aria-label="Search" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: gray; font-size:30px;"></i></button>
+                    </div>
+                </div>
+
+
+                <div class="bodyCompras col-lg-12 col-12 mt-5" style="background:white; overflow-x:auto; ">
+                    <div class="table">
+                        <table id="ProveedoresTable" class="tablaDeDatos col-12">
+                            <thead>
+                                <tr>
+                                    <th>IdProveedor</th>
+                                    <th>#Documento</th>
+                                    <th>Nombre o razon social</th>
+                                    <th>Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewData["Proveedores"] != null)
+                                {
+                                    foreach (var detalle in ViewData["Proveedores"] as List<Proveedor>)
+                                    {
+                                        <tr data-id="@detalle.IdProveedor" class="filaProducto">
+                                            <td>@detalle.IdProveedor</td>
+                                            <td>@detalle.Documento</td>
+                                            <td>@detalle.NombreRazonSocial</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-seleccionar">Seleccionar</button>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-12  mt-4" style="min-width:700px; overflow-x:auto;">
+    <form asp-action="Create" id="formCompra" style="height:100px; " class="border rounded me-2 ms-2 d-flex align-items-center">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group col-4">
+            <label asp-for="Fecha" class="control-label"></label>
+            <input id="fechaInput" asp-for="Fecha" class="form-control" type="datetime-local" />
+            <span asp-validation-for="Fecha" class="text-danger"></span>
+        </div>
+        <div class="col-3"></div>
+        <div class="form-group col-4">
+            <label asp-for="ValorCompra" class="control-label"></label>
+            <input asp-for="ValorCompra" id="inputTotal" value="@ViewData["ValorCompra"]" class="form-control" />
+            <span asp-validation-for="ValorCompra" class="text-danger"></span>
+        </div>
+    </form>
+</div>
+
+<footer class="col-12 mt-4">
+    <div class="me-2 ms-2 d-flex justify-content-between align-items-center" style="height:100px;">
+        <a asp-action="Index" class="btn btn-danger ms-5">Cancelar Compra</a>
+        <a asp-action="CreateCompra" class="btn btn-primary me-5">Ver detalles</a>
+    </div>
+</footer>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<script>
+    /*Traer la fecha de hoy */
+    // Obtener la fecha y hora actual en la zona horaria de Colombia
+    const fechaHoraActual = new Date();
+    const timeZoneOffset = -5 * 60; // UTC-5 para Colombia
+    const fechaHoraColombia = new Date(fechaHoraActual.getTime() + timeZoneOffset * 60 * 1000);
+
+    // Formatear la fecha y hora en el formato requerido por el input de tipo datetime-local
+    const formatoFechaHora = fechaHoraColombia.toISOString().slice(0, 16); // Tomar solo los primeros 16 caracteres
+
+    // Asignar el valor al input
+    document.getElementById("fechaInput").value = formatoFechaHora;
+
+
+
+    function validarVenta() {
+
+        var total = document.getElementById('inputTotal').value;
+        var fecha = document.getElementById('fechaInput').value;
+        var idPrveedor = document.getElementById('inputIdProveedor').value;
+
+
+
+        if (total.includes(',')) {
+            alert('Se ha detectado una coma en lugar de un punto como separador decimal.');
+            return
+        }
+
+        var compra = {
+            IdProveedor: idProveedor,
+            Fecha: fecha,
+            TotalCompra: totalCompra,
+            Estado: 1
+        };
+
+        alert(compra.IdProveedor)
+        alert(compra.Fecha)
+        alert(compra.TotalCompra)
+        alert(compra.Estado)
+
+
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("Create", "Compras")", // Reemplaza con la URL de tu controlador
+            contentType: "application/json; charset=utf-8",
+            data: compra,
+            success: function (response) {
+                // Manejar la respuesta del servidor si es necesario
+                console.log(response.message);
+
+            },
+            error: function (error) {
+                console.error("Error al guardar detalles", error);
+            }
+        });
+
+    }
+
+    /*Buscador en tiempo real */
+    $(document).ready(function () {
+        $('#searchInput').on('input', function () {
+            var searchText = $(this).val().toLowerCase();
+            $('#proveedoresTable tbody tr').each(function () {
+                var documento = $(this).find('td:eq(1)').text().toLowerCase();
+                if (documento.includes(searchText)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+
+
+    /*Agregar la informacion del proveedor de la tabla a los input */
+    var botonesSeleccionar = document.querySelectorAll('.btn-seleccionar');
+    botonesSeleccionar.forEach(function (boton) {
+        boton.addEventListener('click', function () {
+            // Obtener la fila actual del proveedor
+            var fila = this.closest('tr');
+            // Obtener los valores de la fila actual
+            var idProveedor = fila.cells[0].innerText;
+            var documento = fila.cells[1].innerText;
+            var nombre = fila.cells[2].innerText;
+            // Asignar los valores a los inputs en infoproveedor
+            document.getElementById('inputIdProveedor').value = idProveedor;
+            document.getElementById('inputNombre').value = nombre;
+            document.getElementById('inputDocumento').value = documento;
+            // Cerrar el modal
+            var modal = document.getElementById('staticBackdrop');
+            var modalBootstrap = bootstrap.Modal.getInstance(modal);
+            modalBootstrap.hide();
+        });
+    });
+</script>
