@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LemonAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26d0bcfa35299c884eacf635153ce9c473aadc01")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7903f3e549ab2b5f7cfdcf5d29a296b2a6a82d80")]
 [assembly: System.Reflection.AssemblyProductAttribute("LemonAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LemonAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

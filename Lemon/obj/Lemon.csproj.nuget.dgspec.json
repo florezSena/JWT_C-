@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\Lemon.csproj": {}
+    "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Lemon.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\Lemon.csproj": {
+    "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Lemon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\Lemon.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Lemon.csproj",
         "projectName": "Lemon",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\Lemon.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Lemon.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -81,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200-preview.23624.5\\RuntimeIdentifierGraph.json"
         }
       }
     }

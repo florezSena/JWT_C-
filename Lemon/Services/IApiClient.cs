@@ -85,6 +85,7 @@ namespace Lemon.Services
         Task<HttpResponseMessage> DeleteClienteAsync(int id);
 
         /*Metodos de usuarios*/
+        Task<dynamic> Login(string correo, string password);
         Task<IEnumerable<Usuario>> GetUsuariosAsync();
         Task<HttpResponseMessage> CreateUsuarioAsync(Usuario usuario);
         Task<UsuarioUpdate> FindUsuarioAsync(int id);

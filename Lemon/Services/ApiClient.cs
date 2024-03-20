@@ -1,4 +1,5 @@
 ﻿using Lemon.Models;
+using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
@@ -8,6 +9,7 @@ namespace Lemon.Services
     {
         private readonly HttpClient _httpclient;
 
+        private static string keyJwt;
 
         public ApiClient(HttpClient httpClient)
         {
@@ -135,6 +137,30 @@ namespace Lemon.Services
         }
 
         /*Comienza usuarios-----------------------------------------------------------------------------------------------------------------------------------------------*/
+        public async Task<dynamic> Login(string usuario, string password)
+        {
+            dynamic nuevoUsuario = new
+            {
+                usuario = usuario,
+                password = password
+            };
+            string json = JsonConvert.SerializeObject(nuevoUsuario);
+            HttpResponseMessage response = await _httpclient.PostAsJsonAsync("Usuarios/Login", json);
+            Console.WriteLine(response);
+
+            response.EnsureSuccessStatusCode();
+
+            string responseContent = await response.Content.ReadAsStringAsync();
+            dynamic responseData = JsonConvert.DeserializeObject<dynamic>(responseContent);
+
+            Console.WriteLine(responseData);
+            Console.WriteLine(responseData.result);
+
+
+            keyJwt = responseData.result;
+
+            return responseData;
+        }
         public async Task<IEnumerable<Usuario>> GetUsuariosAsync()
         {
             var response = await _httpclient.GetFromJsonAsync<IEnumerable<Usuario>>("Usuarios/GetUsers");
@@ -380,7 +406,8 @@ namespace Lemon.Services
         /*Comienza clientes-----------------------------------------------------------------------------------------------------------------------------------------------*/
         public async Task<IEnumerable<Cliente>> GetClientesAsync()
         {
-            _httpclient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXNlV2ViQXBpU3ViamVjdCIsImp0aSI6Ijg0NTg2NDAyLTVkOTYtNGNkMC1hMWU4LTY1Y2E1ZTJjOGY5NCIsImlhdCI6IjIwLzAzLzIwMjQgNjoyMzoyOSBhLsKgbS4iLCJpZFVzZXIiOiIzIiwiY29ycmVvIjoic2FudGFpZ29AZ21haWwuY29tIiwiaWRSb2wiOiIxIiwiZXhwIjoxNzExMDAyMjA5LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo3MjAwLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyMDAvIn0.oPqFyOAeEIyGABcXBKoPcqus7sAf4fqtij_gjJNa84A");
+            Console.WriteLine("Key guardada: " + keyJwt);
+            _httpclient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", keyJwt);
 
             var response = await _httpclient.GetFromJsonAsync<IEnumerable<Cliente>>("Clientes/GetClients");
             if (response == null)

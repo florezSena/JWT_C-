@@ -1,34 +1,62 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\usuario\\desktop\\jwtprueba\\proyecto_lemon\\lemon\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemon\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemon\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemon\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|c:\\users\\usuario\\desktop\\jwtprueba\\proyecto_lemon\\lemonapi\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemonapi\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|solutionrelative:lemonapi\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|c:\\users\\usuario\\desktop\\jwtprueba\\proyecto_lemon\\lemonapi\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemonapi\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|solutionrelative:lemonapi\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\usuario\\desktop\\jwtprueba\\proyecto_lemon\\lemon\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemon\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\usuario\\desktop\\jwtprueba\\proyecto_lemon\\lemon\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemon\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|c:\\users\\usuario\\desktop\\jwtprueba\\proyecto_lemon\\lemonapi\\models\\dblemoncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|solutionrelative:lemonapi\\models\\dblemoncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemon\\services\\iapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\services\\iapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|c:\\users\\usuario\\desktop\\jwtprueba\\proyecto_lemon\\lemonapi\\models\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemon\\controllers\\ventumscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\controllers\\ventumscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemon\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemonapi\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|solutionrelative:lemonapi\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemonapi\\models\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E6C4ADF1-F5C1-4128-895A-19823F4FD7EB}|LemonAPI\\LemonAPI.csproj|solutionrelative:lemonapi\\models\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemon\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|c:\\users\\user\\desktop\\jwtlemon\\jwt_c-\\lemon\\models\\ventum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA715CDB-179F-4FB1-B4CA-F961EF8ABA1A}|Lemon\\Lemon.csproj|solutionrelative:lemon\\models\\ventum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,93 +71,171 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ApiClient.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\Services\\ApiClient.cs",
-              "RelativeDocumentMoniker": "Lemon\\Services\\ApiClient.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\Services\\ApiClient.cs",
-              "RelativeToolTip": "Lemon\\Services\\ApiClient.cs",
-              "ViewState": "AQIAAG0BAAAAAAAAAAAUwH4BAAB5AAAA",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Lemon\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Lemon\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAqwA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T06:22:36.337Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ClientesController.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\Controllers\\ClientesController.cs",
-              "RelativeDocumentMoniker": "Lemon\\Controllers\\ClientesController.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\Controllers\\ClientesController.cs",
-              "RelativeToolTip": "Lemon\\Controllers\\ClientesController.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAmwEEAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T06:17:53.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Error.cshtml",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\Views\\Shared\\Error.cshtml",
-              "RelativeDocumentMoniker": "Lemon\\Views\\Shared\\Error.cshtml",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\Lemon\\Views\\Shared\\Error.cshtml",
-              "RelativeToolTip": "Lemon\\Views\\Shared\\Error.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-20T06:17:38.166Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "dblemonContext.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\LemonAPI\\Models\\dblemonContext.cs",
-              "RelativeDocumentMoniker": "LemonAPI\\Models\\dblemonContext.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\LemonAPI\\Models\\dblemonContext.cs",
-              "RelativeToolTip": "LemonAPI\\Models\\dblemonContext.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAowAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T05:25:43.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Jwt.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\LemonAPI\\Models\\Jwt.cs",
-              "RelativeDocumentMoniker": "LemonAPI\\Models\\Jwt.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\LemonAPI\\Models\\Jwt.cs",
-              "RelativeToolTip": "LemonAPI\\Models\\Jwt.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAxwDsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T05:09:50.879Z",
+              "WhenOpened": "2024-03-20T21:16:08.992Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Lemon\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Lemon\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-20T21:15:46.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ClientesController.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\LemonAPI\\Controllers\\ClientesController.cs",
-              "RelativeDocumentMoniker": "LemonAPI\\Controllers\\ClientesController.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\LemonAPI\\Controllers\\ClientesController.cs",
-              "RelativeToolTip": "LemonAPI\\Controllers\\ClientesController.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAgwCUAAAAiAAAA",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\ClientesController.cs",
+              "RelativeDocumentMoniker": "Lemon\\Controllers\\ClientesController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\ClientesController.cs",
+              "RelativeToolTip": "Lemon\\Controllers\\ClientesController.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAgwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T05:08:19.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T21:04:13.386Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ComprasController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\ComprasController.cs",
+              "RelativeDocumentMoniker": "Lemon\\Controllers\\ComprasController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\ComprasController.cs",
+              "RelativeToolTip": "Lemon\\Controllers\\ComprasController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T21:04:12.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\LemonAPI\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "LemonAPI\\Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\LemonAPI\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "LemonAPI\\Controllers\\UsuariosController.cs",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAAAFUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:59:19.77Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UsuariosController.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\LemonAPI\\Controllers\\UsuariosController.cs",
-              "RelativeDocumentMoniker": "LemonAPI\\Controllers\\UsuariosController.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\JWTPRUEBA\\Proyecto_Lemon\\LemonAPI\\Controllers\\UsuariosController.cs",
-              "RelativeToolTip": "LemonAPI\\Controllers\\UsuariosController.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAowFAAAAAvAAAA",
+              "Title": "ApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Services\\ApiClient.cs",
+              "RelativeDocumentMoniker": "Lemon\\Services\\ApiClient.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Services\\ApiClient.cs",
+              "RelativeToolTip": "Lemon\\Services\\ApiClient.cs",
+              "ViewState": "AQIAAIsBAAAAAAAAAAAqwKABAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T01:22:39.506Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T20:07:26.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClientesController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\LemonAPI\\Controllers\\ClientesController.cs",
+              "RelativeDocumentMoniker": "LemonAPI\\Controllers\\ClientesController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\LemonAPI\\Controllers\\ClientesController.cs",
+              "RelativeToolTip": "LemonAPI\\Controllers\\ClientesController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T20:48:43.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VentumsController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\VentumsController.cs",
+              "RelativeDocumentMoniker": "Lemon\\Controllers\\VentumsController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\VentumsController.cs",
+              "RelativeToolTip": "Lemon\\Controllers\\VentumsController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABsAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T20:59:27.146Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Services\\IApiClient.cs",
+              "RelativeDocumentMoniker": "Lemon\\Services\\IApiClient.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Services\\IApiClient.cs",
+              "RelativeToolTip": "Lemon\\Services\\IApiClient.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:58:41.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "Lemon\\Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "Lemon\\Controllers\\UsuariosController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABsAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T20:16:09.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\LemonAPI\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "LemonAPI\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\LemonAPI\\Models\\Usuario.cs",
+              "RelativeToolTip": "LemonAPI\\Models\\Usuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T20:47:50.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Jwt.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\LemonAPI\\Models\\Jwt.cs",
+              "RelativeDocumentMoniker": "LemonAPI\\Models\\Jwt.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\LemonAPI\\Models\\Jwt.cs",
+              "RelativeToolTip": "LemonAPI\\Models\\Jwt.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAqwDsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T05:09:50.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Ventum.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Models\\Ventum.cs",
+              "RelativeDocumentMoniker": "Lemon\\Models\\Ventum.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Models\\Ventum.cs",
+              "RelativeToolTip": "Lemon\\Models\\Ventum.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T20:33:29.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AccesoController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\AccesoController.cs",
+              "RelativeDocumentMoniker": "Lemon\\Controllers\\AccesoController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\JwtLemon\\JWT_C-\\Lemon\\Controllers\\AccesoController.cs",
+              "RelativeToolTip": "Lemon\\Controllers\\AccesoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T19:38:48.755Z"
             }
           ]
         }
